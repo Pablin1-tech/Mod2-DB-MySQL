@@ -1,5 +1,6 @@
 -- Creacion de la base de datos del sistema SaludTotal
 -- j
+drop DATABASE SaludTotal;
 
 -- Creacion de la base de datos
 create database SaludTotal;
@@ -472,9 +473,6 @@ values (
 
 select * from medicinas;
 
-delete from pacientes_permanentes;
-delete from medicinas;
-
 create table clasificacion_medicinas 
 (
     ID_medicina int,
@@ -566,3 +564,104 @@ values (
 );
 
 select * from clasificacion_medicinas;
+
+create table datos_empresa(
+    ruc char(13) primary key,
+    razonsocial varchar (100),
+    direccion varchar (100),
+    telefono varchar(10),
+    email varchar(25)
+);
+
+insert into datos_empresa
+values (
+    '1712312345001',
+    'Salud Total S. A.',
+    'Av. 10 de Agosto S/N',
+    '0991234567',
+    'sanatotal@sana.com'
+);
+
+alter table clientes
+add column email varchar (20);
+
+update clientes
+set email= 'marciah@yahoo.com'
+where cedula = '1711932798';
+select * from clientes;
+
+select * from datos_empresa;
+
+create table facturas (
+  FacturaNumero char(10) primary key,
+  Fecha date,
+  Cedula char(10),
+  Total decimal(15,2)
+);
+
+alter table facturas
+add constraint facturascedula_fk
+Foreign Key (Cedula) REFERENCES Clientes(Cedula);
+insert into facturas
+values (
+    '0000000001',
+    '2025-12-12',
+    '1711932798',
+    5.25
+);
+create table facturadetalle(
+    facturaNumero char(10),
+    medicamento_id int,
+    cantidad int,
+    precio decimal(15,2)
+);
+
+alter table facturadetalle
+add primary key (facturaNumero, medicamento_id);
+alter table facturadetalle
+add CONSTRAINT facturadetalle_cantidad_ck
+check (cantidad > 0);
+alter table facturadetalle
+add CONSTRAINT facturadetalle_precio_ck
+check (precio > 0);
+
+select * from facturadetalle;
+insert into facturadetalle
+values (
+    '0000000001',
+    2,
+    6,
+    0.56
+);
+insert into facturadetalle
+values (
+    '0000000001',
+    8,
+    10,
+    22.31
+);
+
+insert into facturadetalle
+values (
+    '0000000002',
+    1,
+    3,
+    1.50
+);
+insert into facturadetalle
+values (
+    '0000000002',
+    30,
+    1,
+    9.50
+);
+insert into facturadetalle
+values (
+    '0000000002',
+    15,
+    6,
+    12.70
+);
+select * from facturadetalle;
+show tables;
+select * from medicinas;
