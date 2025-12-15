@@ -1,8 +1,6 @@
 -- Creacion de la base de datos del sistema SaludTotal
 -- j
 -- comentario
-drop DATABASE SaludTotal;
-
 -- Creacion de la base de datos
 create database SaludTotal;
 
@@ -666,3 +664,37 @@ values (
 select * from facturadetalle;
 show tables;
 select * from medicinas;
+create table Proveedor
+(
+    RUC CHAR(13),
+    Nombre VARCHAR(30),
+    Contacto VARCHAR(20),
+    Email VARCHAR(50)
+);
+create table Proveedor_Medicinas
+(
+    RUC_Proveedor CHAR(13),
+    Medicina_Id int,
+    Proveedor_Precio DECIMAL(15,2),
+    Lote int,
+    Plazo int
+);
+alter table Proveedor_Medicinas
+add primary key (RUC_Proveedor, Medicina_Id);
+alter table Proveedor_Medicinas
+add CONSTRAINT proveedor_precio_ck
+check (Proveedor_Precio > 0);
+alter table Proveedor_Medicinas
+add constraint medicamentos_fk
+Foreign Key (Medicina_Id) 
+REFERENCES Medicinas(Id);
+
+insert into Proveedor
+values (
+    '17000000001','BioSin','Ben Affleck','biosin@ec.mail'
+);
+insert into Proveedor_Medicinas
+values (
+    '17000000001',1,0.25,100,30
+);
+-- Creada tabla de proveedores
