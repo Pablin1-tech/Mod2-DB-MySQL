@@ -671,6 +671,8 @@ create table Proveedor
     Contacto VARCHAR(20),
     Email VARCHAR(50)
 );
+alter table Proveedor
+add primary key (RUC);
 create table Proveedor_Medicinas
 (
     RUC_Proveedor CHAR(13),
@@ -688,7 +690,6 @@ alter table Proveedor_Medicinas
 add constraint medicamentos_fk
 Foreign Key (Medicina_Id) 
 REFERENCES Medicinas(Id);
-
 insert into Proveedor
 values (
     '17000000001','BioSin','Ben Affleck','biosin@ec.mail'
