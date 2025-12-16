@@ -674,6 +674,7 @@ values (
 select * from facturadetalle;
 show tables;
 select * from medicinas;
+
 create table Proveedor
 (
     RUC CHAR(13),
