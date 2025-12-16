@@ -608,6 +608,13 @@ values (
     '1711932798',
     5.25
 );
+insert into facturas
+values (
+    '0000000002',
+    '2025-12-01',
+    '1710544337',
+    11.20
+);
 create table facturadetalle(
     facturaNumero char(10),
     medicamento_id int,
@@ -623,6 +630,9 @@ check (cantidad > 0);
 alter table facturadetalle
 add CONSTRAINT facturadetalle_precio_ck
 check (precio > 0);
+Alter table facturadetalle
+add Constraint factura_numero_fk
+Foreign Key (facturaNumero) REFERENCES facturas(FacturaNumero);
 
 select * from facturadetalle;
 insert into facturadetalle
@@ -690,6 +700,11 @@ alter table Proveedor_Medicinas
 add constraint medicamentos_fk
 Foreign Key (Medicina_Id) 
 REFERENCES Medicinas(Id);
+
+alter table Proveedor_Medicinas
+add constraint proveedor_ruc_fk
+Foreign Key (RUC_Proveedor) REFERENCES Proveedor(RUC);
+
 insert into Proveedor
 values (
     '17000000001','BioSin','Ben Affleck','biosin@ec.mail'
