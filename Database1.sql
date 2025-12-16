@@ -317,25 +317,62 @@ values (
     '2028-12-01 00:00:00'
 );
 
+alter table medicinas
+MODIFY COLUMN Tipo CHAR(3) default 'GEN';
+alter table medicinas
+MODIFY COLUMN nombre VARCHAR(100) not null;
+alter table medicinas
+add constraint medicinas_tipo_val
+check (
+    tipo in ('GEN', 'COM')
+);
 
+insert into medicinas
+values (
+    33, 
+    'Amoxicilina', 
+    'COM',
+    8.97, 69,
+    '2030-12-01 00:00:00'
+);
+insert into medicinas
+values (
+    35, 
+    'Rivoflavina', 
+    'COM',
+    8.97, 69,
+    '2030-12-01 00:00:00'
+);
+
+insert into medicinas
+(id, nombre, precio, stock, fechacaducidad)
+values (34, 'Enterogermina',3.43,98,'2029-01-05 00:00:00');
+insert into medicinas
+(id, nombre, precio, stock, fechacaducidad)
+values (36, 'Penicilina',5.3,88,'2030-01-05 00:00:00');
+insert into medicinas
+(id, nombre, tipo, precio, stock, fechacaducidad)
+values (37, 'SalButamol','GEN',5.10,45,'2028-01-05 00:00:00');
+select * from medicinas;
 create table CLientes
 (
-    Cedula char (10) primary key,
+    Cedula varchar(10) primary key,
     Nombre VARCHAR (100),
     Apellido VARCHAR (100),
     Tipo CHAR (3),
-    Edad int
+    Edad int,
+    Correo VARCHAR(50)
 );
 
 select * from clientes;
-
 insert into clientes
 values (
     '1726367459', 
     'Pablo',
     'Cortez',
     'NAT',
-    20
+    20,
+    'andresctz16@gmail.com'
 );
 
 insert into clientes
@@ -344,7 +381,8 @@ values (
     'Marco',
     'Cortez', 
     'JUR',
-    56
+    56,
+    'andremarc@yahoo.com'
 );
 
 insert into clientes
@@ -353,7 +391,8 @@ values (
     'Marcia',
     'Hidalgo', 
     'JUR',
-    51
+    51,
+    'marciah@yahoo.com'
 );
 
 insert into clientes
@@ -362,7 +401,8 @@ values (
     'Margarita',
     'Dueñaz', 
     'NAT',
-    65
+    65,
+    'margge@gmail.com'
 );
 
 insert into clientes
@@ -371,7 +411,8 @@ values (
     'William',
     'Ortiz', 
     'NAT',
-    72
+    72,
+    'willo@outlook.com'
 );
 
 insert into clientes
@@ -380,7 +421,8 @@ values (
     'Sara',
     'Flores', 
     'NAT',
-    87
+    87,
+    'sary@gmail.com'
 );
 
 insert into clientes
@@ -389,7 +431,17 @@ values (
     'Andrés',
     'Páez', 
     'NAT',
-    28
+    28,
+    'andyp@google.com'
+);
+insert into CLientes
+values (
+    '1717508941',
+    'Danilo',
+    'Pereira',
+    'NAT',
+    38,
+    'danip@google.com'
 );
 
 create table pacientes_permanentes
@@ -581,12 +633,9 @@ values (
     'sanatotal@sana.com'
 );
 
-alter table clientes
-add column email varchar (20);
-
-update clientes
-set email= 'marciah@yahoo.com'
-where cedula = '1711932798';
+--update clientes
+--set email= 'marciah@yahoo.com'
+--where cedula = '1711932798';
 select * from clientes;
 
 select * from datos_empresa;
@@ -715,3 +764,8 @@ values (
     '17000000001',1,0.25,100,30
 );
 -- Creada tabla de proveedores
+
+-- Atrubuto correo unico en la tabla clientes
+alter table CLientes
+add constraint cliente_email_uq
+UNIQUE(Correo);
