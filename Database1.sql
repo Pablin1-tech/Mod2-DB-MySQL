@@ -443,6 +443,65 @@ values (
     38,
     'danip@google.com'
 );
+INSERT INTO Clientes
+(Cedula, Nombre, Apellido, Tipo, Edad, Correo)
+VALUES
+('0100000001','Juan','Perez','NAT',25,'juan.perez1@mail.com'),
+('0100000002','Maria','Gomez','NAT',34,'maria.gomez2@mail.com'),
+('0100000003','Carlos','Rodriguez','NAT',41,'carlos.rodriguez3@mail.com'),
+('0100000004','Ana','Martinez','NAT',22,'ana.martinez4@mail.com'),
+('0100000005','Luis','Hernandez','NAT',37,'luis.hernandez5@mail.com'),
+('0100000006','Sofia','Lopez','NAT',20,'sofia.lopez6@mail.com'),
+('0100000007','Miguel','Garcia','NAT',45,'miguel.garcia7@mail.com'),
+('0100000008','Valentina','Torres','NAT',18,'valentina.torres8@mail.com'),
+('0100000009','Diego','Flores','NAT',26,'diego.flores9@mail.com'),
+('0100000010','Camila','Rojas','NAT',24,'camila.rojas10@mail.com'),
+
+('0100000011','Andres','Vargas','JUR',23,'andres.vargas11@mail.com'),
+('0100000012','Lucia','Mendoza','NAT',22,'lucia.mendoza12@mail.com'),
+('0100000013','Fernando','Castro','NAT',21,'fernando.castro13@mail.com'),
+('0100000014','Daniela','Ortega','JUR',20,'daniela.ortega14@mail.com'),
+('0100000015','Jorge','Ramirez','NAT',19,'jorge.ramirez15@mail.com'),
+('0100000016','Paula','Navarro','NAT',18,'paula.navarro16@mail.com'),
+('0100000017','Ricardo','Cabrera','JUR',26,'ricardo.cabrera17@mail.com'),
+('0100000018','Elena','Paredes','NAT',24,'elena.paredes18@mail.com'),
+('0100000019','Sebastian','Morales','NAT',23,'sebastian.morales19@mail.com'),
+('0100000020','Natalia','Suarez','JUR',22,'natalia.suarez20@mail.com'),
+
+('0100000021','Hugo','Reyes','NAT',21,'hugo.reyes21@mail.com'),
+('0100000022','Carolina','Leon','NAT',20,'carolina.leon22@mail.com'),
+('0100000023','Ivan','Molina','JUR',19,'ivan.molina23@mail.com'),
+('0100000024','Gabriela','Herrera','NAT',18,'gabriela.herrera24@mail.com'),
+('0100000025','Oscar','Pena','NAT',26,'oscar.pena25@mail.com'),
+('0100000026','Patricia','Silva','JUR',24,'patricia.silva26@mail.com'),
+('0100000027','Alberto','Cruz','NAT',23,'alberto.cruz27@mail.com'),
+('0100000028','Rocio','Delgado','NAT',22,'rocio.delgado28@mail.com'),
+('0100000029','Esteban','Guerrero','JUR',21,'esteban.guerrero29@mail.com'),
+('0100000030','Veronica','Campos','NAT',20,'veronica.campos30@mail.com'),
+
+('0100000031','Mauricio','Rivas','NAT',19,'mauricio.rivas31@mail.com'),
+('0100000032','Lorena','Salinas','JUR',18,'lorena.salinas32@mail.com'),
+('0100000033','Felipe','Aguilar','NAT',26,'felipe.aguilar33@mail.com'),
+('0100000034','Monica','Espinoza','NAT',24,'monica.espinoza34@mail.com'),
+('0100000035','Raul','Valdez','JUR',23,'raul.valdez35@mail.com'),
+('0100000036','Isabel','Cifuentes','NAT',22,'isabel.cifuentes36@mail.com'),
+('0100000037','Gonzalo','Arce','NAT',21,'gonzalo.arce37@mail.com'),
+('0100000038','Adriana','Mejia','JUR',20,'adriana.mejia38@mail.com'),
+('0100000039','Victor','Lara','NAT',19,'victor.lara39@mail.com'),
+('0100000040','Claudia','Ibarra','NAT',18,'claudia.ibarra40@mail.com'),
+
+('0100000041','Rodrigo','Figueroa','JUR',26,'rodrigo.figueroa41@mail.com'),
+('0100000042','Marisol','Bustos','NAT',24,'marisol.bustos42@mail.com'),
+('0100000043','Eduardo','Soto','NAT',23,'eduardo.soto43@mail.com'),
+('0100000044','Paola','Cortes','JUR',22,'paola.cortes44@mail.com'),
+('0100000045','Nelson','Paz','NAT',21,'nelson.paz45@mail.com'),
+('0100000046','Juliana','Vega','NAT',20,'juliana.vega46@mail.com'),
+('0100000047','Sergio','Lopez','JUR',19,'sergio.lopez47@mail.com'),
+('0100000048','Daniel','Mora','NAT',18,'daniel.mora48@mail.com'),
+('0100000049','Andrea','Acosta','NAT',26,'andrea.acosta49@mail.com'),
+('0100000050','Tomas','Benitez','JUR',24,'tomas.benitez50@mail.com');
+
+select * from clientes;
 
 create table pacientes_permanentes
 (
@@ -769,3 +828,140 @@ values (
 alter table CLientes
 add constraint cliente_email_uq
 UNIQUE(Correo);
+
+select correo, nombre from Clientes where cedula='0100000021';
+INSERT INTO Medicinas VALUES (100,'Axentrol','COM',49.80,210,'2028-04-12 00:00:00');
+INSERT INTO Medicinas VALUES (101,'Cardiaval','GEN',19.50,180,'2029-01-20 00:00:00');
+INSERT INTO Medicinas VALUES (102,'Gastromed','COM',11.75,95,'2027-11-05 00:00:00');
+INSERT INTO Medicinas VALUES (103,'Pulmovir','GEN',22.30,300,'2029-08-18 00:00:00');
+INSERT INTO Medicinas VALUES (104,'Cutisal','COM',16.40,140,'2028-09-02 00:00:00');
+INSERT INTO Medicinas VALUES (105,'Hepanox','GEN',34.90,160,'2029-03-27 00:00:00');
+INSERT INTO Medicinas VALUES (106,'Renaplus','COM',27.10,130,'2027-06-14 00:00:00');
+INSERT INTO Medicinas VALUES (107,'Ostecare','GEN',18.60,220,'2028-12-09 00:00:00');
+INSERT INTO Medicinas VALUES (108,'Immunor','COM',41.80,175,'2029-10-01 00:00:00');
+INSERT INTO Medicinas VALUES (109,'Glucamed','GEN',29.25,260,'2028-05-23 00:00:00');
+INSERT INTO Medicinas VALUES (110,'Pressimed','COM',15.90,310,'2027-08-11 00:00:00');
+INSERT INTO Medicinas VALUES (111,'Liporin','GEN',36.40,200,'2029-06-17 00:00:00');
+INSERT INTO Medicinas VALUES (112,'Broncamed','COM',12.80,145,'2028-02-04 00:00:00');
+INSERT INTO Medicinas VALUES (113,'Dolaren','GEN',9.50,400,'2027-10-29 00:00:00');
+INSERT INTO Medicinas VALUES (114,'Refluxan','COM',14.20,190,'2029-12-15 00:00:00');
+INSERT INTO Medicinas VALUES (115,'Colestil','GEN',31.60,210,'2028-07-08 00:00:00');
+INSERT INTO Medicinas VALUES (116,'Vasotril','COM',44.75,125,'2030-01-03 00:00:00');
+INSERT INTO Medicinas VALUES (117,'Nephrix','GEN',38.10,170,'2029-04-21 00:00:00');
+INSERT INTO Medicinas VALUES (118,'Hematix','COM',26.90,160,'2027-05-30 00:00:00');
+INSERT INTO Medicinas VALUES (119,'Pulmisan','GEN',33.40,230,'2028-11-19 00:00:00');
+INSERT INTO Medicinas VALUES (120,'Digestar','COM',17.60,280,'2029-09-07 00:00:00');
+INSERT INTO Medicinas VALUES (121,'Arthrex','GEN',21.30,195,'2028-01-16 00:00:00');
+INSERT INTO Medicinas VALUES (122,'Calcifor','COM',8.95,500,'2027-12-02 00:00:00');
+INSERT INTO Medicinas VALUES (123,'Vitamax','GEN',13.75,450,'2029-02-25 00:00:00');
+INSERT INTO Medicinas VALUES (124,'Energon','COM',10.60,380,'2028-06-06 00:00:00');
+INSERT INTO Medicinas VALUES (125,'Neurofen','GEN',24.80,210,'2029-07-28 00:00:00');
+INSERT INTO Medicinas VALUES (126,'Cardionex','COM',46.30,150,'2030-03-10 00:00:00');
+INSERT INTO Medicinas VALUES (127,'Respimed','GEN',28.40,175,'2028-10-14 00:00:00');
+INSERT INTO Medicinas VALUES (128,'Dermazen','COM',19.90,260,'2027-09-01 00:00:00');
+INSERT INTO Medicinas VALUES (129,'Hepanova','GEN',35.70,140,'2029-11-22 00:00:00');
+INSERT INTO Medicinas VALUES (130,'Renalor','COM',22.50,155,'2028-03-18 00:00:00');
+INSERT INTO Medicinas VALUES (131,'Ostegran','GEN',27.80,185,'2029-05-09 00:00:00');
+INSERT INTO Medicinas VALUES (132,'Immunexia','COM',39.60,160,'2027-07-26 00:00:00');
+INSERT INTO Medicinas VALUES (133,'Glucozen','GEN',32.20,240,'2028-12-30 00:00:00');
+INSERT INTO Medicinas VALUES (134,'Presoval','COM',14.90,330,'2029-08-03 00:00:00');
+INSERT INTO Medicinas VALUES (135,'Lipamed','GEN',37.10,190,'2028-04-19 00:00:00');
+INSERT INTO Medicinas VALUES (136,'Broncoval','COM',11.40,270,'2027-06-08 00:00:00');
+INSERT INTO Medicinas VALUES (137,'Dolix','GEN',7.80,600,'2029-10-12 00:00:00');
+INSERT INTO Medicinas VALUES (138,'Acidrel','COM',16.20,215,'2028-01-27 00:00:00');
+INSERT INTO Medicinas VALUES (139,'Colesmin','GEN',34.60,180,'2030-02-18 00:00:00');
+INSERT INTO Medicinas VALUES (140,'Vasculor','COM',45.30,140,'2029-06-04 00:00:00');
+INSERT INTO Medicinas VALUES (141,'Nephroval','GEN',29.90,165,'2027-11-13 00:00:00');
+INSERT INTO Medicinas VALUES (142,'Hematrol','COM',23.70,200,'2028-08-22 00:00:00');
+INSERT INTO Medicinas VALUES (143,'Pulmonix','GEN',31.10,175,'2029-01-09 00:00:00');
+INSERT INTO Medicinas VALUES (144,'Digestal','COM',12.60,310,'2027-05-02 00:00:00');
+INSERT INTO Medicinas VALUES (145,'Artimed','GEN',26.80,190,'2028-09-29 00:00:00');
+INSERT INTO Medicinas VALUES (146,'Calcior','COM',9.40,480,'2029-12-05 00:00:00');
+INSERT INTO Medicinas VALUES (147,'Vitacore','GEN',14.20,360,'2028-02-11 00:00:00');
+INSERT INTO Medicinas VALUES (148,'Enerlif','COM',11.90,420,'2027-10-17 00:00:00');
+INSERT INTO Medicinas VALUES (149,'Neuraxon','GEN',25.50,230,'2029-07-01 00:00:00');
+INSERT INTO Medicinas VALUES (150,'Cardiolin','COM',47.80,135,'2030-01-26 00:00:00');
+INSERT INTO Medicinas VALUES (151,'Respironex','GEN',30.60,185,'2028-06-15 00:00:00');
+INSERT INTO Medicinas VALUES (152,'Dermaliv','COM',18.30,210,'2027-12-28 00:00:00');
+INSERT INTO Medicinas VALUES (153,'Hepaliv','GEN',33.90,160,'2029-09-14 00:00:00');
+INSERT INTO Medicinas VALUES (154,'Renacort','COM',21.40,175,'2028-03-06 00:00:00');
+INSERT INTO Medicinas VALUES (155,'Ostevin','GEN',28.70,190,'2029-05-30 00:00:00');
+INSERT INTO Medicinas VALUES (156,'Immunova','COM',40.50,145,'2027-08-19 00:00:00');
+INSERT INTO Medicinas VALUES (157,'Glucorinex','GEN',34.10,260,'2028-11-24 00:00:00');
+INSERT INTO Medicinas VALUES (158,'Presocor','COM',16.80,320,'2029-02-08 00:00:00');
+INSERT INTO Medicinas VALUES (159,'Lipoclean','GEN',38.40,170,'2030-03-19 00:00:00');
+INSERT INTO Medicinas VALUES (160,'Broncosal','COM',13.20,290,'2028-07-07 00:00:00');
+INSERT INTO Medicinas VALUES (161,'Dolgen','GEN',8.60,510,'2027-09-25 00:00:00');
+
+select id, nombre from Medicinas where nombre like 'f%';
+select cedula, nombre from Clientes where nombre like 'Juan%';
+
+INSERT INTO clasificacion_medicinas VALUES (38,100);
+INSERT INTO clasificacion_medicinas VALUES (39,101);
+INSERT INTO clasificacion_medicinas VALUES (40,102);
+INSERT INTO clasificacion_medicinas VALUES (41,103);
+INSERT INTO clasificacion_medicinas VALUES (42,104);
+INSERT INTO clasificacion_medicinas VALUES (43,105);
+INSERT INTO clasificacion_medicinas VALUES (44,106);
+INSERT INTO clasificacion_medicinas VALUES (45,107);
+INSERT INTO clasificacion_medicinas VALUES (46,108);
+INSERT INTO clasificacion_medicinas VALUES (47,109);
+INSERT INTO clasificacion_medicinas VALUES (48,110);
+INSERT INTO clasificacion_medicinas VALUES (49,111);
+INSERT INTO clasificacion_medicinas VALUES (50,112);
+INSERT INTO clasificacion_medicinas VALUES (51,113);
+INSERT INTO clasificacion_medicinas VALUES (52,114);
+INSERT INTO clasificacion_medicinas VALUES (53,115);
+INSERT INTO clasificacion_medicinas VALUES (54,116);
+INSERT INTO clasificacion_medicinas VALUES (55,117);
+INSERT INTO clasificacion_medicinas VALUES (56,118);
+INSERT INTO clasificacion_medicinas VALUES (57,119);
+INSERT INTO clasificacion_medicinas VALUES (58,120);
+INSERT INTO clasificacion_medicinas VALUES (59,121);
+INSERT INTO clasificacion_medicinas VALUES (60,122);
+INSERT INTO clasificacion_medicinas VALUES (61,123);
+INSERT INTO clasificacion_medicinas VALUES (62,124);
+INSERT INTO clasificacion_medicinas VALUES (63,125);
+INSERT INTO clasificacion_medicinas VALUES (64,126);
+INSERT INTO clasificacion_medicinas VALUES (65,127);
+INSERT INTO clasificacion_medicinas VALUES (66,128);
+INSERT INTO clasificacion_medicinas VALUES (67,129);
+INSERT INTO clasificacion_medicinas VALUES (68,130);
+INSERT INTO clasificacion_medicinas VALUES (69,131);
+INSERT INTO clasificacion_medicinas VALUES (70,132);
+INSERT INTO clasificacion_medicinas VALUES (71,133);
+INSERT INTO clasificacion_medicinas VALUES (72,134);
+INSERT INTO clasificacion_medicinas VALUES (73,135);
+INSERT INTO clasificacion_medicinas VALUES (74,136);
+INSERT INTO clasificacion_medicinas VALUES (75,137);
+INSERT INTO clasificacion_medicinas VALUES (76,138);
+INSERT INTO clasificacion_medicinas VALUES (77,139);
+INSERT INTO clasificacion_medicinas VALUES (78,140);
+INSERT INTO clasificacion_medicinas VALUES (79,141);
+INSERT INTO clasificacion_medicinas VALUES (80,142);
+INSERT INTO clasificacion_medicinas VALUES (81,143);
+INSERT INTO clasificacion_medicinas VALUES (82,144);
+INSERT INTO clasificacion_medicinas VALUES (83,145);
+INSERT INTO clasificacion_medicinas VALUES (84,146);
+INSERT INTO clasificacion_medicinas VALUES (85,147);
+INSERT INTO clasificacion_medicinas VALUES (86,148);
+INSERT INTO clasificacion_medicinas VALUES (87,149);
+INSERT INTO clasificacion_medicinas VALUES (88,150);
+INSERT INTO clasificacion_medicinas VALUES (89,151);
+INSERT INTO clasificacion_medicinas VALUES (90,152);
+INSERT INTO clasificacion_medicinas VALUES (91,153);
+INSERT INTO clasificacion_medicinas VALUES (92,154);
+INSERT INTO clasificacion_medicinas VALUES (93,155);
+INSERT INTO clasificacion_medicinas VALUES (94,156);
+INSERT INTO clasificacion_medicinas VALUES (95,157);
+INSERT INTO clasificacion_medicinas VALUES (96,158);
+INSERT INTO clasificacion_medicinas VALUES (97,159);
+INSERT INTO clasificacion_medicinas VALUES (98,160);
+INSERT INTO clasificacion_medicinas VALUES (99,161);
+
+select * from clasificacion_medicinas;
+select cedula, nombre from Clientes where tipo like 'JUR';
+select * from clientes;
+select cedula, nombre from clientes where tipo like 'JUR' AND correo like '%mail%';
+select id, nombre from medicinas where precio like '%5%';
+select id, stock from medicinas where nombre like '%A%' AND tipo like 'GEN';
