@@ -501,6 +501,63 @@ VALUES
 ('0100000049','Andrea','Acosta','NAT',26,'andrea.acosta49@mail.com'),
 ('0100000050','Tomas','Benitez','JUR',24,'tomas.benitez50@mail.com');
 
+INSERT INTO Clientes
+VALUES
+('0100000051','Kevin','Almeida','NAT',27,'kevin.almeida51@mail.com'),
+('0100000052','Diana','Santillan','JUR',35,'diana.santillan52@mail.com'),
+('0100000053','Marco','Villacis','NAT',29,'marco.villacis53@mail.com'),
+('0100000054','Fernanda','Carrillo','NAT',24,'fernanda.carrillo54@mail.com'),
+('0100000055','Alex','Zambrano','JUR',41,'alex.zambrano55@mail.com'),
+('0100000056','Paola','Muñoz','NAT',32,'paola.munoz56@mail.com'),
+('0100000057','Cristian','Bravo','NAT',28,'cristian.bravo57@mail.com'),
+('0100000058','Tatiana','Cedeño','JUR',38,'tatiana.cedeno58@mail.com'),
+('0100000059','Jonathan','Chavez','NAT',26,'jonathan.chavez59@mail.com'),
+('0100000060','Melissa','Pineda','NAT',23,'melissa.pineda60@mail.com'),
+
+('0100000061','Henry','Ponce','JUR',45,'henry.ponce61@mail.com'),
+('0100000062','Andrea','Rosero','NAT',31,'andrea.rosero62@mail.com'),
+('0100000063','Luis','Montero','NAT',34,'luis.montero63@mail.com'),
+('0100000064','Vanessa','Moya','JUR',39,'vanessa.moya64@mail.com'),
+('0100000065','Oscar','Serrano','NAT',28,'oscar.serrano65@mail.com'),
+('0100000066','Karla','Villamarin','NAT',25,'karla.villamarin66@mail.com'),
+('0100000067','Patricio','Lema','JUR',44,'patricio.lema67@mail.com'),
+('0100000068','Daniela','Cobo','NAT',22,'daniela.cobo68@mail.com'),
+('0100000069','Freddy','Navas','NAT',36,'freddy.navas69@mail.com'),
+('0100000070','Gloria','Peñafiel','JUR',48,'gloria.penafiel70@mail.com'),
+
+('0100000071','Santiago','Crespo','NAT',27,'santiago.crespo71@mail.com'),
+('0100000072','Carla','Lucero','NAT',24,'carla.lucero72@mail.com'),
+('0100000073','Wilson','Taco','JUR',42,'wilson.taco73@mail.com'),
+('0100000074','Nataly','Quintero','NAT',21,'nataly.quintero74@mail.com'),
+('0100000075','Roberto','Espin','NAT',33,'roberto.espin75@mail.com'),
+('0100000076','Miriam','Yanez','JUR',37,'miriam.yanez76@mail.com'),
+('0100000077','Bryan','Vera','NAT',26,'bryan.vera77@mail.com'),
+('0100000078','Silvia','Altamirano','NAT',40,'silvia.altamirano78@mail.com'),
+('0100000079','Pedro','Saenz','JUR',46,'pedro.saenz79@mail.com'),
+('0100000080','Lorena','Benavides','NAT',29,'lorena.benavides80@mail.com'),
+
+('0100000081','Andres','Tobar','NAT',31,'andres.tobar81@mail.com'),
+('0100000082','Johanna','Recalde','JUR',43,'johanna.recalde82@mail.com'),
+('0100000083','Diego','Maldonado','NAT',35,'diego.maldonado83@mail.com'),
+('0100000084','Rosa','Ayala','NAT',50,'rosa.ayala84@mail.com'),
+('0100000085','Edison','Patiño','JUR',47,'edison.patino85@mail.com'),
+('0100000086','Pamela','Sanchez','NAT',28,'pamela.sanchez86@mail.com'),
+('0100000087','Jorge','Guaman','NAT',34,'jorge.guaman87@mail.com'),
+('0100000088','Viviana','Orbe','JUR',41,'viviana.orbe88@mail.com'),
+('0100000089','Hector','Narvaez','NAT',38,'hector.narvaez89@mail.com'),
+('0100000090','Elisa','Mayorga','NAT',27,'elisa.mayorga90@mail.com'),
+
+('0100000091','Mauricio','Roldan','JUR',49,'mauricio.roldan91@mail.com'),
+('0100000092','Karen','Loor','NAT',23,'karen.loor92@mail.com'),
+('0100000093','Victor','Toapanta','NAT',36,'victor.toapanta93@mail.com'),
+('0100000094','Cecilia','Guerron','JUR',44,'cecilia.guerron94@mail.com'),
+('0100000095','Fernando','Urbina','NAT',39,'fernando.urbina95@mail.com'),
+('0100000096','Ruth','Cañar','NAT',30,'ruth.canar96@mail.com'),
+('0100000097','Alvaro','Lincango','JUR',52,'alvaro.lincango97@mail.com'),
+('0100000098','Maritza','Calderon','NAT',41,'maritza.calderon98@mail.com'),
+('0100000099','Esteban','Pilco','NAT',28,'esteban.pilco99@mail.com'),
+('0100000100','Nelly','Samaniego','JUR',46,'nelly.samaniego100@mail.com');
+
 select * from clientes;
 
 create table pacientes_permanentes
@@ -581,8 +638,106 @@ values (
     41.7
 );
 
-select * from medicinas;
+INSERT INTO pacientes_permanentes
+VALUES
+('0100000051','Hipertension','MEN','NO',38,'Oral',30,0.10),
+('0100000052','Diabetes','SEM','NO',39,'Subcutanea',4,0.15),
+('0100000053','Asma','MEN','NO',40,'Inhalada',1,0.05),
 
+('0100000054','Hipertension','MEN','SI',41,'Oral',30,0.20),
+('0100000054','Colesterol','MEN','SI',100,'Oral',30,0.20),
+
+('0100000055','Artritis','15D','NO',42,'Oral',15,0.00),
+('0100000056','Diabetes','SEM','SI',43,'Subcutanea',4,0.30),
+('0100000056','Hipertension','MEN','SI',101,'Oral',30,0.30),
+
+('0100000057','Asma','MEN','NO',44,'Inhalada',1,0.10),
+('0100000058','Epilepsia','MEN','NO',45,'Oral',30,0.25),
+
+('0100000059','Hipertension','MEN','SI',46,'Oral',30,0.15),
+('0100000059','Colesterol','MEN','SI',102,'Oral',30,0.15),
+
+('0100000060','Diabetes','SEM','NO',47,'Subcutanea',4,0.20),
+('0100000061','Artritis','MEN','NO',48,'Oral',30,0.05),
+
+('0100000062','Asma','MEN','SI',49,'Inhalada',1,0.10),
+('0100000062','Rinitis','MEN','SI',103,'Inhalada',1,0.10),
+
+('0100000063','Hipertension','MEN','NO',50,'Oral',30,0.00),
+('0100000064','Epilepsia','MEN','NO',51,'Oral',30,0.35),
+
+('0100000065','Diabetes','SEM','SI',52,'Subcutanea',4,0.40),
+('0100000065','Hipertension','MEN','SI',104,'Oral',30,0.40),
+
+('0100000066','Colesterol','MEN','NO',53,'Oral',30,0.10),
+('0100000067','Asma','MEN','NO',54,'Inhalada',1,0.05),
+
+('0100000068','Hipertension','MEN','SI',55,'Oral',30,0.25),
+('0100000068','Diabetes','SEM','SI',105,'Subcutanea',4,0.25),
+
+('0100000069','Artritis','15D','NO',56,'Oral',15,0.00),
+('0100000070','Epilepsia','MEN','NO',57,'Oral',30,0.30),
+
+('0100000071','Asma','MEN','SI',58,'Inhalada',1,0.10),
+('0100000071','Rinitis','MEN','SI',106,'Inhalada',1,0.10),
+
+('0100000072','Hipertension','MEN','NO',59,'Oral',30,0.05),
+('0100000073','Diabetes','SEM','NO',60,'Subcutanea',4,0.20),
+
+('0100000074','Colesterol','MEN','SI',61,'Oral',30,0.15),
+('0100000074','Hipertension','MEN','SI',107,'Oral',30,0.15),
+
+('0100000075','Artritis','15D','NO',62,'Oral',15,0.00),
+('0100000076','Epilepsia','MEN','NO',63,'Oral',30,0.45),
+
+('0100000077','Asma','MEN','NO',64,'Inhalada',1,0.10),
+('0100000078','Hipertension','MEN','SI',65,'Oral',30,0.20),
+('0100000078','Colesterol','MEN','SI',108,'Oral',30,0.20),
+
+('0100000079','Diabetes','SEM','NO',66,'Subcutanea',4,0.25),
+('0100000080','Asma','MEN','NO',67,'Inhalada',1,0.05),
+
+('0100000081','Epilepsia','MEN','NO',68,'Oral',30,0.30),
+('0100000082','Hipertension','MEN','SI',69,'Oral',30,0.35),
+('0100000082','Diabetes','SEM','SI',109,'Subcutanea',4,0.35),
+
+('0100000083','Artritis','15D','NO',70,'Oral',15,0.00),
+('0100000084','Colesterol','MEN','NO',71,'Oral',30,0.10),
+
+('0100000085','Asma','MEN','SI',72,'Inhalada',1,0.20),
+('0100000085','Rinitis','MEN','SI',110,'Inhalada',1,0.20),
+
+('0100000086','Hipertension','MEN','NO',73,'Oral',30,0.05),
+('0100000087','Diabetes','SEM','NO',74,'Subcutanea',4,0.15),
+
+('0100000088','Epilepsia','MEN','NO',75,'Oral',30,0.40),
+('0100000089','Colesterol','MEN','NO',76,'Oral',30,0.10),
+
+('0100000090','Asma','MEN','SI',77,'Inhalada',1,0.25),
+('0100000090','Hipertension','MEN','SI',111,'Oral',30,0.25),
+
+('0100000091','Diabetes','SEM','NO',78,'Subcutanea',4,0.30),
+('0100000092','Artritis','15D','NO',79,'Oral',15,0.00),
+
+('0100000093','Hipertension','MEN','NO',80,'Oral',30,0.05),
+('0100000094','Epilepsia','MEN','NO',81,'Oral',30,0.45),
+
+('0100000095','Asma','MEN','SI',82,'Inhalada',1,0.15),
+('0100000095','Rinitis','MEN','SI',112,'Inhalada',1,0.15),
+
+('0100000096','Colesterol','MEN','NO',83,'Oral',30,0.10),
+('0100000097','Diabetes','SEM','SI',84,'Subcutanea',4,0.50),
+('0100000097','Hipertension','MEN','SI',113,'Oral',30,0.50),
+
+('0100000098','Artritis','15D','NO',85,'Oral',15,0.00),
+('0100000099','Asma','MEN','NO',86,'Inhalada',1,0.05),
+
+('0100000100','Hipertension','MEN','SI',87,'Oral',30,0.20),
+('0100000100','Colesterol','MEN','SI',114,'Oral',30,0.20);
+
+select * from medicinas;
+select * from pacientes_permanentes;
+select count (*) from pacientes_permanentes;
 create table clasificacion_medicinas 
 (
     ID_medicina int,
@@ -965,3 +1120,4 @@ select * from clientes;
 select cedula, nombre from clientes where tipo like 'JUR' AND correo like '%mail%';
 select id, nombre from medicinas where precio like '%5%';
 select id, stock from medicinas where nombre like '%A%' AND tipo like 'GEN';
+
