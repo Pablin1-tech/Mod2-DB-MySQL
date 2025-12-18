@@ -48,3 +48,31 @@ FROM pacientes_permanentes;
 
 select * from pacientes_permanentes;
 
+-- Caso: Las medicinas comerciales pueden ser reemplazadas
+--       por sus correspondientes genericas.
+--       Elaborar un listado que compare precios
+--       de medicinas comerciales y genericas
+
+select * from medicinas;
+select * from clasificacion_medicinas;
+SELECT
+    clasificacion_medicinas.id_medicina AS id_comercial,
+
+    (SELECT nombre
+     FROM medicinas
+     WHERE id = clasificacion_medicinas.id_medicina) AS medicina_comercial,
+
+    (SELECT precio
+     FROM medicinas
+     WHERE id = clasificacion_medicinas.id_medicina) AS precio_comercial,
+
+    clasificacion_medicinas.alternativa AS id_generica,
+
+    (SELECT nombre
+     FROM medicinas
+     WHERE id = clasificacion_medicinas.alternativa) AS medicina_generica,
+
+    (SELECT precio
+     FROM medicinas
+     WHERE id = clasificacion_medicinas.alternativa) AS precio_generico
+FROM clasificacion_medicinas;
