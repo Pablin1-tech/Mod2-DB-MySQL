@@ -595,7 +595,7 @@ values (
     4,
     'Oral',
     3,
-    34.5
+    0.35
 );
 
 insert into pacientes_permanentes
@@ -607,7 +607,7 @@ values (
     5,
     'Subcutanea',
     10,
-    48.7
+    0.49
 );
 
 insert into pacientes_permanentes
@@ -619,7 +619,7 @@ values (
     15,
     'Oral',
     6,
-    25.5
+    0.26
 );
 
 show tables;
@@ -635,7 +635,7 @@ values (
     8,
     'Inhalada',
     7,
-    41.7
+    0.42
 );
 
 INSERT INTO pacientes_permanentes

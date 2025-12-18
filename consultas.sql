@@ -21,4 +21,30 @@ select precio from medicinas where precio BETWEEN 5 AND 20;
 select Cedula_cliente as Cedula, (select nombre from Clientes where cedula = Cedula_cliente) as Cliente, Id_medicamento as ID, (select Nombre from Medicinas where Id = Id_medicamento) as Medicina, descuento from pacientes_permanentes;
 select Id_medicamento from Pacientes_permanentes where Via_administracion= 'Oral' AND Descuento > (select Descuento from Pacientes_permanentes where Cedula_cliente='0100000053');
 
--- Caso: listado de pacientes 
+-- Caso: listado de pacientes del plan pacientes permanentes
+--       presente el precio final de la medicina junto con el 
+--       precio sin descuento
+
+select 
+Cedula_cliente as Cedula, (select nombre from Clientes where cedula = Cedula_cliente) as Cliente, 
+Id_medicamento as ID, 
+(select Nombre from Medicinas where Id = Id_medicamento) as Medicina, 
+(SELECT precio from Medicinas where Id = Id_Medicamento) as Precio_original, 
+descuento, (SELECT Precio from Medicinas where Id = Id_Medicamento) * descuento as Descontado
+from pacientes_permanentes;
+
+SELECT 
+    Cedula_cliente AS Cedula,
+    (SELECT nombre FROM Clientes WHERE cedula = Cedula_cliente) AS Cliente, 
+    Id_medicamento AS ID, 
+    (SELECT Nombre FROM Medicinas WHERE Id = Id_medicamento) AS Medicina, 
+    (SELECT precio FROM Medicinas WHERE Id = Id_Medicamento) AS Precio_original, 
+    descuento,
+    (SELECT Precio FROM Medicinas WHERE Id = Id_Medicamento) * descuento AS Descontado,
+    (SELECT Precio FROM Medicinas WHERE Id = Id_Medicamento)
+      - ((SELECT Precio FROM Medicinas WHERE Id = Id_Medicamento) * descuento)
+      AS Precio_final
+FROM pacientes_permanentes;
+
+select * from pacientes_permanentes;
+
