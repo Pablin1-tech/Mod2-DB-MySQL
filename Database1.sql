@@ -1,5 +1,4 @@
 -- Creacion de la base de datos del sistema SaludTotal
--- j
 -- comentario
 -- Creacion de la base de datos
 create database SaludTotal;
@@ -11,7 +10,6 @@ show databases;
 use SaludTotal;
 -- creacion de tablas
 -- crear tabla de medicinas
-
 create table Medicinas
 (
     Id int primary key,
@@ -25,298 +23,8 @@ create table Medicinas
 show tables;
 
 select * from medicinas;
-
 desc medicinas;
-
 select * from medicinas;
-insert into medicinas
-values (
-    1, 
-    'Paracetamol', 
-    'GEN',
-    1.50, 12,
-    '2026-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    2, 
-    'Acetaminofen', 
-    'GEN',
-    0.56, 23,
-    '2027-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    3, 
-    'Finalin', 
-    'COM',
-    2.75, 43,
-    '2028-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    4, 
-    'Losartan', 
-    'GEN',
-    5.95, 62,
-    '2029-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    5, 
-    'Insulina Glargina', 
-    'COM',
-    43.25, 98,
-    '2028-10-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    6, 
-    'Metformina', 
-    'GEN',
-    4.80, 59,
-    '2029-08-17 00:00:00'
-);
-
-insert into medicinas
-values (
-    7, 
-    'Levotiroxina', 
-    'GEN',
-    5.73, 110,
-    '2028-12-12 00:00:00'
-);
-
-insert into medicinas
-values (
-    8, 
-    'Budesonida', 
-    'COM',
-    22.31, 74,
-    '2030-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    9, 
-    'Acido Valproico', 
-    'GEN',
-    9.10, 55,
-    '2029-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    10, 
-    'Dolutegravir', 
-    'COM',
-    21.50, 96,
-    '2030-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    11, 
-    'Tenofovir', 
-    'COM',
-    29.87, 84,
-    '2029-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    12, 
-    'Emtricitabina', 
-    'COM',
-    34.99, 105,
-    '2027-10-10 00:00:00'
-);
-
-insert into medicinas
-values (
-    13, 
-    'Metotrexato', 
-    'GEN',
-    8.54, 76,
-    '2029-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    14, 
-    'Enalapril', 
-    'GEN',
-    5.28, 63,
-    '2030-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    15, 
-    'Levodopa', 
-    'COM',
-    12.70, 57,
-    '2029-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    16, 
-    'Carbidopa', 
-    'COM',
-    19.80, 71,
-    '2029-05-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    17, 
-    'Tylenol', 
-    'COM',
-    8.24, 61,
-    '2029-05-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    18, 
-    'Panadol', 
-    'COM',
-    5.97, 87,
-    '2030-05-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    19, 
-    'Antihistamínico', 
-    'COM',
-    4.80, 95,
-    '2028-05-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    20, 
-    'Cozaar', 
-    'COM',
-    7.19, 70,
-    '2029-12-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    21, 
-    'Lantus', 
-    'GEN',
-    29.80, 47,
-    '2029-05-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    22, 
-    'Glucophage', 
-    'COM',
-    5.25, 100,
-    '2027-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    23, 
-    'Synthroid', 
-    'COM',
-    11.20, 80,
-    '2027-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    24, 
-    'Formoterol', 
-    'GEN',
-    25.40, 55,
-    '2028-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    25, 
-    'Depakene', 
-    'COM',
-    11.40, 90,
-    '2029-05-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    26, 
-    'TDF Generico', 
-    'GEN',
-    18.80, 94,
-    '2028-05-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    27, 
-    'FTC generico', 
-    'GEN',
-    19.50, 140,
-    '2029-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    28, 
-    'DTG generica', 
-    'GEN',
-    26.48, 103,
-    '2028-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    29, 
-    'Rheumatrex', 
-    'COM',
-    11.23, 80,
-    '2028-12-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    30, 
-    'Vasotec', 
-    'COM',
-    9.50, 60,
-    '2030-08-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    31, 
-    'Levodopa generica', 
-    'GEN',
-    8.71, 110,
-    '2027-01-01 00:00:00'
-);
-
-insert into medicinas
-values (
-    32, 
-    'Carbidopa generica', 
-    'GEN',
-    12.65, 95,
-    '2028-12-01 00:00:00'
-);
-
 alter table medicinas
 MODIFY COLUMN Tipo CHAR(3) default 'GEN';
 alter table medicinas
@@ -326,33 +34,181 @@ add constraint medicinas_tipo_val
 check (
     tipo in ('GEN', 'COM')
 );
+INSERT INTO MEDICINAS
+VALUES
+(1,'Paracetamol','GEN',0.50,500,'2026-02-15 00:00:00'),
+(2,'Ibuprofeno','GEN',0.65,420,'2026-03-10 00:00:00'),
+(3,'Amoxicilina','GEN',1.20,300,'2026-04-05 00:00:00'),
+(4,'Azitromicina','GEN',2.50,200,'2026-05-18 00:00:00'),
+(5,'Metformina','GEN',0.90,600,'2026-06-22 00:00:00'),
+(6,'Losartan','GEN',1.10,350,'2026-07-30 00:00:00'),
+(7,'Enalapril','GEN',0.85,400,'2026-08-12 00:00:00'),
+(8,'Atorvastatina','GEN',1.75,250,'2026-09-25 00:00:00'),
+(9,'Omeprazol','GEN',0.95,500,'2026-10-08 00:00:00'),
+(10,'Aspirina','GEN',0.45,700,'2026-11-19 00:00:00'),
 
-insert into medicinas
-values (
-    33, 
-    'Amoxicilina', 
-    'COM',
-    8.97, 69,
-    '2030-12-01 00:00:00'
-);
-insert into medicinas
-values (
-    35, 
-    'Rivoflavina', 
-    'COM',
-    8.97, 69,
-    '2030-12-01 00:00:00'
-);
+(11,'Ciprofloxacino','GEN',1.90,220,'2027-01-15 00:00:00'),
+(12,'Clorfenamina','GEN',0.60,450,'2027-02-18 00:00:00'),
+(13,'Dexametasona','GEN',0.80,380,'2027-03-22 00:00:00'),
+(14,'Diclofenaco','GEN',0.70,520,'2027-04-27 00:00:00'),
+(15,'Ranitidina','GEN',0.88,410,'2027-05-30 00:00:00'),
+(16,'Salbutamol','GEN',1.30,260,'2027-06-12 00:00:00'),
+(17,'Loratadina','GEN',0.75,480,'2027-07-18 00:00:00'),
+(18,'Cetirizina','GEN',0.82,460,'2027-08-24 00:00:00'),
+(19,'Insulina','GEN',5.50,150,'2027-09-29 00:00:00'),
+(20,'Warfarina','GEN',1.95,180,'2027-10-15 00:00:00'),
 
-insert into medicinas
-(id, nombre, precio, stock, fechacaducidad)
-values (34, 'Enterogermina',3.43,98,'2029-01-05 00:00:00');
-insert into medicinas
-(id, nombre, precio, stock, fechacaducidad)
-values (36, 'Penicilina',5.3,88,'2030-01-05 00:00:00');
-insert into medicinas
-(id, nombre, tipo, precio, stock, fechacaducidad)
-values (37, 'SalButamol','GEN',5.10,45,'2028-01-05 00:00:00');
+(21,'Levotiroxina','GEN',0.68,500,'2027-11-20 00:00:00'),
+(22,'Prednisona','GEN',0.72,390,'2027-12-10 00:00:00'),
+(23,'Hidroclorotiazida','GEN',0.55,420,'2028-01-18 00:00:00'),
+(24,'Furosemida','GEN',0.60,410,'2028-02-25 00:00:00'),
+(25,'Clopidogrel','GEN',1.85,230,'2028-03-30 00:00:00'),
+(26,'Amlodipino','GEN',0.95,360,'2028-04-12 00:00:00'),
+(27,'Naproxeno','GEN',1.05,310,'2028-05-19 00:00:00'),
+(28,'Ketorolaco','GEN',1.40,260,'2028-06-23 00:00:00'),
+(29,'Tramadol','GEN',1.60,240,'2028-07-28 00:00:00'),
+(30,'Metronidazol','GEN',0.78,430,'2028-08-30 00:00:00'),
+
+(31,'Fluconazol','GEN',1.50,270,'2028-09-15 00:00:00'),
+(32,'Aciclovir','GEN',1.35,290,'2028-10-22 00:00:00'),
+(33,'Clotrimazol','GEN',0.92,340,'2028-11-28 00:00:00'),
+(34,'Bromhexina','GEN',0.65,410,'2029-01-12 00:00:00'),
+(35,'Ambroxol','GEN',0.70,400,'2029-02-20 00:00:00'),
+(36,'Fenitoina','GEN',1.25,210,'2029-03-27 00:00:00'),
+(37,'Carbamazepina','GEN',1.30,220,'2029-04-30 00:00:00'),
+(38,'Valproato','GEN',1.45,200,'2029-05-18 00:00:00'),
+(39,'Sertralina','GEN',1.90,190,'2029-06-24 00:00:00'),
+(40,'Fluoxetina','GEN',1.80,210,'2029-07-29 00:00:00'),
+
+(41,'Haloperidol','GEN',1.10,260,'2029-08-15 00:00:00'),
+(42,'Risperidona','GEN',2.20,170,'2029-09-21 00:00:00'),
+(43,'Quetiapina','GEN',2.50,160,'2029-10-27 00:00:00'),
+(44,'Diazepam','GEN',0.98,320,'2029-11-30 00:00:00'),
+(45,'Clonazepam','GEN',1.15,300,'2030-01-14 00:00:00'),
+(46,'Midazolam','GEN',1.70,240,'2030-02-18 00:00:00'),
+(47,'Meloxicam','GEN',1.10,310,'2030-03-22 00:00:00'),
+(48,'Celecoxib','GEN',2.60,180,'2030-04-25 00:00:00'),
+(49,'Sulfasalazina','GEN',1.35,230,'2030-05-28 00:00:00'),
+(50,'Mesalazina','GEN',2.10,190,'2030-06-30 00:00:00'),
+
+(51,'Amiodarona','GEN',2.40,170,'2030-07-15 00:00:00'),
+(52,'Digoxina','GEN',1.90,200,'2030-08-18 00:00:00'),
+(53,'Propranolol','GEN',0.88,350,'2030-09-22 00:00:00'),
+(54,'Bisoprolol','GEN',1.15,280,'2030-10-25 00:00:00'),
+(55,'Carvedilol','GEN',1.30,260,'2030-11-28 00:00:00'),
+(56,'Isosorbide','GEN',1.45,240,'2031-01-10 00:00:00'),
+(57,'Nitroglicerina','GEN',1.80,210,'2031-02-14 00:00:00'),
+(58,'Heparina','GEN',3.50,160,'2031-03-18 00:00:00'),
+(59,'Enoxaparina','GEN',4.20,140,'2031-04-22 00:00:00'),
+(60,'Vitamina C','GEN',0.40,600,'2031-05-25 00:00:00'),
+
+(61,'Vitamina D','GEN',0.55,580,'2031-06-28 00:00:00'),
+(62,'Ácido Fólico','GEN',0.35,650,'2031-07-30 00:00:00'),
+(63,'Hierro','GEN',0.50,520,'2031-08-15 00:00:00'),
+(64,'Zinc','GEN',0.60,480,'2031-09-18 00:00:00'),
+(65,'Magnesio','GEN',0.75,450,'2031-10-20 00:00:00'),
+(66,'Calcio','GEN',0.70,500,'2031-11-22 00:00:00'),
+(67,'Albendazol','GEN',1.10,300,'2032-01-10 00:00:00'),
+(68,'Ivermectina','GEN',1.40,260,'2032-02-15 00:00:00'),
+(69,'Nitazoxanida','GEN',1.80,240,'2032-03-20 00:00:00'),
+(70,'Loperamida','GEN',0.65,420,'2032-04-25 00:00:00'),
+
+(71,'Butilhioscina','GEN',0.85,380,'2032-05-30 00:00:00'),
+(72,'Simeticona','GEN',0.55,450,'2032-06-18 00:00:00'),
+(73,'Domperidona','GEN',0.95,330,'2032-07-22 00:00:00'),
+(74,'Ondansetron','GEN',2.20,210,'2032-08-26 00:00:00'),
+(75,'Dimedrol','GEN',0.90,360,'2032-09-30 00:00:00'),
+
+(76,'Tylenol','COM',1.20,400,'2026-02-15 00:00:00'),
+(77,'Advil','COM',1.50,350,'2026-03-10 00:00:00'),
+(78,'Amoxil','COM',2.80,220,'2026-04-05 00:00:00'),
+(79,'Zithromax','COM',4.20,160,'2026-05-18 00:00:00'),
+(80,'Glucophage','COM',2.60,300,'2026-06-22 00:00:00'),
+(81,'Cozaar','COM',2.90,240,'2026-07-30 00:00:00'),
+(82,'Renitec','COM',2.50,260,'2026-08-12 00:00:00'),
+(83,'Lipitor','COM',3.80,190,'2026-09-25 00:00:00'),
+(84,'Prilosec','COM',2.40,300,'2026-10-08 00:00:00'),
+(85,'Bayer Aspirina','COM',1.10,500,'2026-11-19 00:00:00'),
+
+(86,'Cipro','COM',3.60,180,'2027-01-15 00:00:00'),
+(87,'Claritin','COM',2.30,300,'2027-07-18 00:00:00'),
+(88,'Zyrtec','COM',2.40,290,'2027-08-24 00:00:00'),
+(89,'Humulin','COM',12.00,120,'2027-09-29 00:00:00'),
+(90,'Coumadin','COM',3.10,150,'2027-10-15 00:00:00'),
+
+(91,'Synthroid','COM',1.80,280,'2027-11-20 00:00:00'),
+(92,'Deltasone','COM',1.60,260,'2027-12-10 00:00:00'),
+(93,'Esidrex','COM',1.40,300,'2028-01-18 00:00:00'),
+(94,'Lasix','COM',1.50,290,'2028-02-25 00:00:00'),
+(95,'Plavix','COM',3.90,200,'2028-03-30 00:00:00'),
+
+(96,'Norvasc','COM',2.20,260,'2028-04-12 00:00:00'),
+(97,'Aleve','COM',2.10,240,'2028-05-19 00:00:00'),
+(98,'Toradol','COM',2.80,210,'2028-06-23 00:00:00'),
+(99,'Ultram','COM',3.20,200,'2028-07-28 00:00:00'),
+(100,'Flagyl','COM',1.90,300,'2028-08-30 00:00:00'),
+
+(101,'Diflucan','COM',3.40,220,'2028-09-15 00:00:00'),
+(102,'Zovirax','COM',3.10,240,'2028-10-22 00:00:00'),
+(103,'Canesten','COM',2.20,260,'2028-11-28 00:00:00'),
+(104,'Bisolvon','COM',1.80,300,'2029-01-12 00:00:00'),
+(105,'Mucosolvan','COM',1.90,290,'2029-02-20 00:00:00'),
+
+(106,'Dilantin','COM',2.70,180,'2029-03-27 00:00:00'),
+(107,'Tegretol','COM',2.90,170,'2029-04-30 00:00:00'),
+(108,'Depakene','COM',3.10,160,'2029-05-18 00:00:00'),
+(109,'Zoloft','COM',3.80,150,'2029-06-24 00:00:00'),
+(110,'Prozac','COM',3.60,160,'2029-07-29 00:00:00'),
+
+(111,'Haldol','COM',2.40,200,'2029-08-15 00:00:00'),
+(112,'Risperdal','COM',3.90,140,'2029-09-21 00:00:00'),
+(113,'Seroquel','COM',4.50,130,'2029-10-27 00:00:00'),
+(114,'Valium','COM',2.60,220,'2029-11-30 00:00:00'),
+(115,'Rivotril','COM',2.90,210,'2030-01-14 00:00:00'),
+
+(116,'Versed','COM',3.20,190,'2030-02-18 00:00:00'),
+(117,'Mobic','COM',2.80,230,'2030-03-22 00:00:00'),
+(118,'Celebrex','COM',4.10,160,'2030-04-25 00:00:00'),
+(119,'Azulfidine','COM',3.30,180,'2030-05-28 00:00:00'),
+(120,'Pentasa','COM',4.20,150,'2030-06-30 00:00:00'),
+
+(121,'Cordarone','COM',4.00,140,'2030-07-15 00:00:00'),
+(122,'Lanoxin','COM',2.80,170,'2030-08-18 00:00:00'),
+(123,'Inderal','COM',1.90,260,'2030-09-22 00:00:00'),
+(124,'Zebeta','COM',2.10,240,'2030-10-25 00:00:00'),
+(125,'Coreg','COM',2.30,230,'2030-11-28 00:00:00'),
+
+(126,'Imdur','COM',2.50,210,'2031-01-10 00:00:00'),
+(127,'Nitrostat','COM',2.90,200,'2031-02-14 00:00:00'),
+(128,'Clexane','COM',6.80,120,'2031-03-18 00:00:00'),
+(129,'Lovenox','COM',7.20,110,'2031-04-22 00:00:00'),
+(130,'Redoxon','COM',1.10,450,'2031-05-25 00:00:00'),
+
+(131,'Calcigen','COM',1.30,420,'2031-06-28 00:00:00'),
+(132,'Fefol','COM',1.40,380,'2031-07-30 00:00:00'),
+(133,'Zentel','COM',2.20,260,'2032-01-10 00:00:00'),
+(134,'Stromectol','COM',2.80,240,'2032-02-15 00:00:00'),
+(135,'Daxon','COM',3.10,220,'2032-03-20 00:00:00'),
+
+(136,'Imodium','COM',1.80,300,'2032-04-25 00:00:00'),
+(137,'Buscapina','COM',1.60,320,'2032-05-30 00:00:00'),
+(138,'Aero-OM','COM',1.40,340,'2032-06-18 00:00:00'),
+(139,'Motilium','COM',2.30,260,'2032-07-22 00:00:00'),
+(140,'Zofran','COM',4.00,190,'2032-08-26 00:00:00'),
+
+(141,'Benadryl','COM',2.20,280,'2032-09-30 00:00:00'),
+(142,'Calcimax','COM',1.50,400,'2032-10-15 00:00:00'),
+(143,'Supradyn','COM',2.80,360,'2032-11-20 00:00:00'),
+(144,'Neurobion','COM',2.40,380,'2032-12-18 00:00:00'),
+(145,'Optamox','COM',2.60,240,'2033-01-22 00:00:00'),
+
+(146,'Broncho-Vaxom','COM',3.90,180,'2033-02-25 00:00:00'),
+(147,'Tantum Verde','COM',2.70,210,'2033-03-28 00:00:00'),
+(148,'Voltaren Gel','COM',2.50,260,'2033-04-30 00:00:00'),
+(149,'Gelocatil','COM',1.90,300,'2033-05-30 00:00:00'),
+(150,'Panadol','COM',1.80,320,'2033-06-30 00:00:00');
+
+
 select * from medicinas;
 create table CLientes
 (
@@ -444,7 +300,6 @@ values (
     'danip@google.com'
 );
 INSERT INTO Clientes
-(Cedula, Nombre, Apellido, Tipo, Edad, Correo)
 VALUES
 ('0100000001','Juan','Perez','NAT',25,'juan.perez1@mail.com'),
 ('0100000002','Maria','Gomez','NAT',34,'maria.gomez2@mail.com'),
@@ -585,248 +440,170 @@ alter table pacientes_permanentes
 add primary KEY (cedula_cliente, ID_Medicamento);
 
 select * from pacientes_permanentes;
-
-insert into pacientes_permanentes
-values (
-    '1752879531',
-    'Hipertension Arterial',
-    'MEN',
-    'NO',
-    4,
-    'Oral',
-    3,
-    0.35
-);
-
-insert into pacientes_permanentes
-values (
-    '1352104851',
-    'Diabetes',
-    'MEN',
-    'NO',
-    5,
-    'Subcutanea',
-    10,
-    0.49
-);
-
-insert into pacientes_permanentes
-values (
-    '2362800765',
-    'Parkinson',
-    '15D',
-    'SI',
-    15,
-    'Oral',
-    6,
-    0.26
-);
-
-show tables;
-
-select * from pacientes_permanentes;
-
-insert into pacientes_permanentes
-values (
-    '5187403021',
-    'Asma Cronica',
-    'SEM',
-    'NO',
-    8,
-    'Inhalada',
-    7,
-    0.42
-);
-
-INSERT INTO pacientes_permanentes
+INSERT INTO Pacientes_permanentes
 VALUES
-('0100000051','Hipertension','MEN','NO',38,'Oral',30,0.10),
-('0100000052','Diabetes','SEM','NO',39,'Subcutanea',4,0.15),
-('0100000053','Asma','MEN','NO',40,'Inhalada',1,0.05),
+('0100000001','Hipertension','MEN','SI',6,'ORAL',30,0.20),
+('0100000001','Colesterol','MEN','SI',8,'ORAL',30,0.15),
+('0100000001','Gastritis','15D','SI',9,'ORAL',20,0.10),
 
-('0100000054','Hipertension','MEN','SI',41,'Oral',30,0.20),
-('0100000054','Colesterol','MEN','SI',100,'Oral',30,0.20),
+('0100000005','Diabetes','MEN','SI',5,'ORAL',60,0.25),
+('0100000005','Hipertension','MEN','SI',26,'ORAL',30,0.20),
+('0100000005','Dolor','15D','SI',14,'ORAL',20,0.10),
 
-('0100000055','Artritis','15D','NO',42,'Oral',15,0.00),
-('0100000056','Diabetes','SEM','SI',43,'Subcutanea',4,0.30),
-('0100000056','Hipertension','MEN','SI',101,'Oral',30,0.30),
+('0100000010','Asma','SEM','SI',16,'INHALADA',1,0.30),
+('0100000010','Alergia','MEN','SI',17,'ORAL',30,0.15),
+('0100000010','Gastritis','15D','SI',9,'ORAL',20,0.10),
 
-('0100000057','Asma','MEN','NO',44,'Inhalada',1,0.10),
-('0100000058','Epilepsia','MEN','NO',45,'Oral',30,0.25),
+('0100000023','Epilepsia','MEN','SI',37,'ORAL',60,0.35),
+('0100000023','Ansiedad','MEN','SI',45,'ORAL',30,0.20),
+('0100000023','Dolor','15D','SI',27,'ORAL',20,0.10),
 
-('0100000059','Hipertension','MEN','SI',46,'Oral',30,0.15),
-('0100000059','Colesterol','MEN','SI',102,'Oral',30,0.15),
+('0100000034','Depresion','MEN','SI',40,'ORAL',30,0.30),
+('0100000034','Insomnio','MEN','SI',44,'ORAL',30,0.20),
+('0100000034','Ansiedad','15D','SI',39,'ORAL',30,0.15),
 
-('0100000060','Diabetes','SEM','NO',47,'Subcutanea',4,0.20),
-('0100000061','Artritis','MEN','NO',48,'Oral',30,0.05),
+('0100000049','Artritis','MEN','SI',47,'ORAL',30,0.25),
+('0100000049','Dolor','15D','SI',29,'ORAL',20,0.10),
+('0100000049','Inflamacion','MEN','SI',48,'ORAL',30,0.20),
 
-('0100000062','Asma','MEN','SI',49,'Inhalada',1,0.10),
-('0100000062','Rinitis','MEN','SI',103,'Inhalada',1,0.10),
+('0100000062','Hipotiroidismo','MEN','SI',21,'ORAL',30,0.30),
+('0100000062','Colesterol','MEN','SI',8,'ORAL',30,0.20),
+('0100000062','Gastritis','15D','SI',9,'ORAL',20,0.10),
 
-('0100000063','Hipertension','MEN','NO',50,'Oral',30,0.00),
-('0100000064','Epilepsia','MEN','NO',51,'Oral',30,0.35),
+('0100000078','Anemia','MEN','SI',63,'ORAL',30,0.25),
+('0100000078','Deficiencia Vitamina D','MEN','SI',61,'ORAL',30,0.20),
+('0100000078','Dolor','15D','SI',1,'ORAL',20,0.10),
 
-('0100000065','Diabetes','SEM','SI',52,'Subcutanea',4,0.40),
-('0100000065','Hipertension','MEN','SI',104,'Oral',30,0.40),
+('0100000017','Hipertension','MEN','SI',6,'ORAL',30,0.20),
+('0100000017','Dolor','15D','SI',10,'ORAL',20,0.10),
 
-('0100000066','Colesterol','MEN','NO',53,'Oral',30,0.10),
-('0100000067','Asma','MEN','NO',54,'Inhalada',1,0.05),
+('0100000028','Alergia','MEN','SI',18,'ORAL',30,0.15),
+('0100000028','Asma','SEM','SI',16,'INHALADA',1,0.25),
 
-('0100000068','Hipertension','MEN','SI',55,'Oral',30,0.25),
-('0100000068','Diabetes','SEM','SI',105,'Subcutanea',4,0.25),
+('0100000039','Gastritis','15D','SI',9,'ORAL',20,0.10),
+('0100000039','Dolor','15D','SI',27,'ORAL',20,0.10),
 
-('0100000069','Artritis','15D','NO',56,'Oral',15,0.00),
-('0100000070','Epilepsia','MEN','NO',57,'Oral',30,0.30),
+('0100000056','Depresion','MEN','SI',39,'ORAL',30,0.30),
+('0100000056','Ansiedad','MEN','SI',45,'ORAL',30,0.20),
 
-('0100000071','Asma','MEN','SI',58,'Inhalada',1,0.10),
-('0100000071','Rinitis','MEN','SI',106,'Inhalada',1,0.10),
+('0100000069','Infeccion','15D','SI',3,'ORAL',21,0.20),
+('0100000069','Dolor','15D','SI',14,'ORAL',20,0.10),
 
-('0100000072','Hipertension','MEN','NO',59,'Oral',30,0.05),
-('0100000073','Diabetes','SEM','NO',60,'Subcutanea',4,0.20),
+('0100000084','Artritis','MEN','SI',47,'ORAL',30,0.25),
+('0100000084','Inflamacion','MEN','SI',48,'ORAL',30,0.20),
 
-('0100000074','Colesterol','MEN','SI',61,'Oral',30,0.15),
-('0100000074','Hipertension','MEN','SI',107,'Oral',30,0.15),
+('0100000095','Diabetes','MEN','SI',5,'ORAL',60,0.30),
+('0100000095','Hipertension','MEN','SI',26,'ORAL',30,0.20),
 
-('0100000075','Artritis','15D','NO',62,'Oral',15,0.00),
-('0100000076','Epilepsia','MEN','NO',63,'Oral',30,0.45),
+('0100000003','Infeccion','15D','NO',4,'ORAL',6,0.15),
+('0100000008','Alergia','MEN','NO',17,'ORAL',30,0.10),
+('0100000012','Gastritis','15D','NO',9,'ORAL',20,0.10),
+('0100000018','Dolor','15D','NO',1,'ORAL',20,0.05),
+('0100000025','Infeccion','15D','NO',11,'ORAL',14,0.20),
+('0100000030','Alergia','MEN','NO',18,'ORAL',30,0.10),
+('0100000036','Hipertension','MEN','NO',7,'ORAL',30,0.20),
+('0100000042','Dolor','15D','NO',27,'ORAL',20,0.10),
+('0100000046','Asma','SEM','NO',16,'INHALADA',1,0.25),
+('0100000051','Colesterol','MEN','NO',8,'ORAL',30,0.20),
+('0100000059','Gastritis','15D','NO',9,'ORAL',20,0.10),
+('0100000066','Anemia','MEN','NO',63,'ORAL',30,0.25),
+('0100000072','Dolor','15D','NO',10,'ORAL',20,0.05),
+('0100000081','Hipertension','MEN','NO',26,'ORAL',30,0.20),
+('0100000090','Alergia','MEN','NO',17,'ORAL',30,0.10);
 
-('0100000077','Asma','MEN','NO',64,'Inhalada',1,0.10),
-('0100000078','Hipertension','MEN','SI',65,'Oral',30,0.20),
-('0100000078','Colesterol','MEN','SI',108,'Oral',30,0.20),
-
-('0100000079','Diabetes','SEM','NO',66,'Subcutanea',4,0.25),
-('0100000080','Asma','MEN','NO',67,'Inhalada',1,0.05),
-
-('0100000081','Epilepsia','MEN','NO',68,'Oral',30,0.30),
-('0100000082','Hipertension','MEN','SI',69,'Oral',30,0.35),
-('0100000082','Diabetes','SEM','SI',109,'Subcutanea',4,0.35),
-
-('0100000083','Artritis','15D','NO',70,'Oral',15,0.00),
-('0100000084','Colesterol','MEN','NO',71,'Oral',30,0.10),
-
-('0100000085','Asma','MEN','SI',72,'Inhalada',1,0.20),
-('0100000085','Rinitis','MEN','SI',110,'Inhalada',1,0.20),
-
-('0100000086','Hipertension','MEN','NO',73,'Oral',30,0.05),
-('0100000087','Diabetes','SEM','NO',74,'Subcutanea',4,0.15),
-
-('0100000088','Epilepsia','MEN','NO',75,'Oral',30,0.40),
-('0100000089','Colesterol','MEN','NO',76,'Oral',30,0.10),
-
-('0100000090','Asma','MEN','SI',77,'Inhalada',1,0.25),
-('0100000090','Hipertension','MEN','SI',111,'Oral',30,0.25),
-
-('0100000091','Diabetes','SEM','NO',78,'Subcutanea',4,0.30),
-('0100000092','Artritis','15D','NO',79,'Oral',15,0.00),
-
-('0100000093','Hipertension','MEN','NO',80,'Oral',30,0.05),
-('0100000094','Epilepsia','MEN','NO',81,'Oral',30,0.45),
-
-('0100000095','Asma','MEN','SI',82,'Inhalada',1,0.15),
-('0100000095','Rinitis','MEN','SI',112,'Inhalada',1,0.15),
-
-('0100000096','Colesterol','MEN','NO',83,'Oral',30,0.10),
-('0100000097','Diabetes','SEM','SI',84,'Subcutanea',4,0.50),
-('0100000097','Hipertension','MEN','SI',113,'Oral',30,0.50),
-
-('0100000098','Artritis','15D','NO',85,'Oral',15,0.00),
-('0100000099','Asma','MEN','NO',86,'Inhalada',1,0.05),
-
-('0100000100','Hipertension','MEN','SI',87,'Oral',30,0.20),
-('0100000100','Colesterol','MEN','SI',114,'Oral',30,0.20);
 
 select * from medicinas;
 select * from pacientes_permanentes;
 select count (*) from pacientes_permanentes;
+
 create table clasificacion_medicinas 
 (
-    ID_medicina int,
-    Alternativa int,
-    primary key (ID_medicina, Alternativa),
-    Foreign Key (ID_medicina) REFERENCES medicinas(id),
-    Foreign Key (Alternativa) REFERENCES medicinas(id)
+    Medicina_GEN int,
+    Medicina_COM int,
+    primary key (Medicina_GEN, Medicina_COM),
+    Foreign Key (Medicina_GEN) REFERENCES medicinas(id),
+    Foreign Key (Medicina_COM) REFERENCES medicinas(id)
 );
 select * from clasificacion_medicinas;
-insert into clasificacion_medicinas
-values (
-    1,
-    17
-);
-insert into clasificacion_medicinas
-values (
-    2,
-    18
-);
-insert into clasificacion_medicinas
-values (
-    3,
-    19
-);
-insert into clasificacion_medicinas
-values (
-    4,
-    20
-);
-insert into clasificacion_medicinas
-values (
-    5,
-    21
-);
-insert into clasificacion_medicinas
-values (
-    6,
-    22
-);
-insert into clasificacion_medicinas
-values (
-    7,
-    23
-);
-insert into clasificacion_medicinas
-values (
-    8,
-    24
-);
-insert into clasificacion_medicinas
-values (
-    9,
-    25
-);
-insert into clasificacion_medicinas
-values (
-    10,
-    26
-);
-insert into clasificacion_medicinas
-values (
-    11,
-    27
-);
-insert into clasificacion_medicinas
-values (
-    12,
-    28
-);
-insert into clasificacion_medicinas
-values (
-    13,
-    29
-);
-insert into clasificacion_medicinas
-values (
-    14,
-    30
-);
-insert into clasificacion_medicinas
-values (
-    15,
-    31
-);
-insert into clasificacion_medicinas
-values (
-    16,
-    32
-);
+
+INSERT INTO Clasificacion_medicinas
+VALUES
+(1,76),
+(2,77),
+(3,78),
+(4,79),
+(5,80),
+(6,81),
+(7,82),
+(8,83),
+(9,84),
+(10,85),
+(11,86),
+(12,87),
+(13,88),
+(14,89),
+(15,90),
+(16,91),
+(17,92),
+(18,93),
+(19,94),
+(20,95),
+(21,96),
+(22,97),
+(23,98),
+(24,99),
+(25,100),
+(26,101),
+(27,102),
+(28,103),
+(29,104),
+(30,105),
+(31,106),
+(32,107),
+(33,108),
+(34,109),
+(35,110),
+(36,111),
+(37,112),
+(38,113),
+(39,114),
+(40,115),
+(41,116),
+(42,117),
+(43,118),
+(44,119),
+(45,120),
+(46,121),
+(47,122),
+(48,123),
+(49,124),
+(50,125),
+(51,126),
+(52,127),
+(53,128),
+(54,129),
+(55,130),
+(56,131),
+(57,132),
+(58,133),
+(59,134),
+(60,135),
+(61,136),
+(62,137),
+(63,138),
+(64,139),
+(65,140),
+(66,141),
+(67,142),
+(68,143),
+(69,144),
+(70,145),
+(71,146),
+(72,147),
+(73,148),
+(74,149),
+(75,150);
+
 
 select * from clasificacion_medicinas;
 
@@ -884,7 +661,6 @@ create table facturadetalle(
     cantidad int,
     precio decimal(15,2)
 );
-
 alter table facturadetalle
 add primary key (facturaNumero, medicamento_id);
 alter table facturadetalle
@@ -964,7 +740,6 @@ alter table Proveedor_Medicinas
 add constraint medicamentos_fk
 Foreign Key (Medicina_Id) 
 REFERENCES Medicinas(Id);
-
 alter table Proveedor_Medicinas
 add constraint proveedor_ruc_fk
 Foreign Key (RUC_Proveedor) REFERENCES Proveedor(RUC);
@@ -985,139 +760,5 @@ add constraint cliente_email_uq
 UNIQUE(Correo);
 
 select correo, nombre from Clientes where cedula='0100000021';
-INSERT INTO Medicinas VALUES (100,'Axentrol','COM',49.80,210,'2028-04-12 00:00:00');
-INSERT INTO Medicinas VALUES (101,'Cardiaval','GEN',19.50,180,'2029-01-20 00:00:00');
-INSERT INTO Medicinas VALUES (102,'Gastromed','COM',11.75,95,'2027-11-05 00:00:00');
-INSERT INTO Medicinas VALUES (103,'Pulmovir','GEN',22.30,300,'2029-08-18 00:00:00');
-INSERT INTO Medicinas VALUES (104,'Cutisal','COM',16.40,140,'2028-09-02 00:00:00');
-INSERT INTO Medicinas VALUES (105,'Hepanox','GEN',34.90,160,'2029-03-27 00:00:00');
-INSERT INTO Medicinas VALUES (106,'Renaplus','COM',27.10,130,'2027-06-14 00:00:00');
-INSERT INTO Medicinas VALUES (107,'Ostecare','GEN',18.60,220,'2028-12-09 00:00:00');
-INSERT INTO Medicinas VALUES (108,'Immunor','COM',41.80,175,'2029-10-01 00:00:00');
-INSERT INTO Medicinas VALUES (109,'Glucamed','GEN',29.25,260,'2028-05-23 00:00:00');
-INSERT INTO Medicinas VALUES (110,'Pressimed','COM',15.90,310,'2027-08-11 00:00:00');
-INSERT INTO Medicinas VALUES (111,'Liporin','GEN',36.40,200,'2029-06-17 00:00:00');
-INSERT INTO Medicinas VALUES (112,'Broncamed','COM',12.80,145,'2028-02-04 00:00:00');
-INSERT INTO Medicinas VALUES (113,'Dolaren','GEN',9.50,400,'2027-10-29 00:00:00');
-INSERT INTO Medicinas VALUES (114,'Refluxan','COM',14.20,190,'2029-12-15 00:00:00');
-INSERT INTO Medicinas VALUES (115,'Colestil','GEN',31.60,210,'2028-07-08 00:00:00');
-INSERT INTO Medicinas VALUES (116,'Vasotril','COM',44.75,125,'2030-01-03 00:00:00');
-INSERT INTO Medicinas VALUES (117,'Nephrix','GEN',38.10,170,'2029-04-21 00:00:00');
-INSERT INTO Medicinas VALUES (118,'Hematix','COM',26.90,160,'2027-05-30 00:00:00');
-INSERT INTO Medicinas VALUES (119,'Pulmisan','GEN',33.40,230,'2028-11-19 00:00:00');
-INSERT INTO Medicinas VALUES (120,'Digestar','COM',17.60,280,'2029-09-07 00:00:00');
-INSERT INTO Medicinas VALUES (121,'Arthrex','GEN',21.30,195,'2028-01-16 00:00:00');
-INSERT INTO Medicinas VALUES (122,'Calcifor','COM',8.95,500,'2027-12-02 00:00:00');
-INSERT INTO Medicinas VALUES (123,'Vitamax','GEN',13.75,450,'2029-02-25 00:00:00');
-INSERT INTO Medicinas VALUES (124,'Energon','COM',10.60,380,'2028-06-06 00:00:00');
-INSERT INTO Medicinas VALUES (125,'Neurofen','GEN',24.80,210,'2029-07-28 00:00:00');
-INSERT INTO Medicinas VALUES (126,'Cardionex','COM',46.30,150,'2030-03-10 00:00:00');
-INSERT INTO Medicinas VALUES (127,'Respimed','GEN',28.40,175,'2028-10-14 00:00:00');
-INSERT INTO Medicinas VALUES (128,'Dermazen','COM',19.90,260,'2027-09-01 00:00:00');
-INSERT INTO Medicinas VALUES (129,'Hepanova','GEN',35.70,140,'2029-11-22 00:00:00');
-INSERT INTO Medicinas VALUES (130,'Renalor','COM',22.50,155,'2028-03-18 00:00:00');
-INSERT INTO Medicinas VALUES (131,'Ostegran','GEN',27.80,185,'2029-05-09 00:00:00');
-INSERT INTO Medicinas VALUES (132,'Immunexia','COM',39.60,160,'2027-07-26 00:00:00');
-INSERT INTO Medicinas VALUES (133,'Glucozen','GEN',32.20,240,'2028-12-30 00:00:00');
-INSERT INTO Medicinas VALUES (134,'Presoval','COM',14.90,330,'2029-08-03 00:00:00');
-INSERT INTO Medicinas VALUES (135,'Lipamed','GEN',37.10,190,'2028-04-19 00:00:00');
-INSERT INTO Medicinas VALUES (136,'Broncoval','COM',11.40,270,'2027-06-08 00:00:00');
-INSERT INTO Medicinas VALUES (137,'Dolix','GEN',7.80,600,'2029-10-12 00:00:00');
-INSERT INTO Medicinas VALUES (138,'Acidrel','COM',16.20,215,'2028-01-27 00:00:00');
-INSERT INTO Medicinas VALUES (139,'Colesmin','GEN',34.60,180,'2030-02-18 00:00:00');
-INSERT INTO Medicinas VALUES (140,'Vasculor','COM',45.30,140,'2029-06-04 00:00:00');
-INSERT INTO Medicinas VALUES (141,'Nephroval','GEN',29.90,165,'2027-11-13 00:00:00');
-INSERT INTO Medicinas VALUES (142,'Hematrol','COM',23.70,200,'2028-08-22 00:00:00');
-INSERT INTO Medicinas VALUES (143,'Pulmonix','GEN',31.10,175,'2029-01-09 00:00:00');
-INSERT INTO Medicinas VALUES (144,'Digestal','COM',12.60,310,'2027-05-02 00:00:00');
-INSERT INTO Medicinas VALUES (145,'Artimed','GEN',26.80,190,'2028-09-29 00:00:00');
-INSERT INTO Medicinas VALUES (146,'Calcior','COM',9.40,480,'2029-12-05 00:00:00');
-INSERT INTO Medicinas VALUES (147,'Vitacore','GEN',14.20,360,'2028-02-11 00:00:00');
-INSERT INTO Medicinas VALUES (148,'Enerlif','COM',11.90,420,'2027-10-17 00:00:00');
-INSERT INTO Medicinas VALUES (149,'Neuraxon','GEN',25.50,230,'2029-07-01 00:00:00');
-INSERT INTO Medicinas VALUES (150,'Cardiolin','COM',47.80,135,'2030-01-26 00:00:00');
-INSERT INTO Medicinas VALUES (151,'Respironex','GEN',30.60,185,'2028-06-15 00:00:00');
-INSERT INTO Medicinas VALUES (152,'Dermaliv','COM',18.30,210,'2027-12-28 00:00:00');
-INSERT INTO Medicinas VALUES (153,'Hepaliv','GEN',33.90,160,'2029-09-14 00:00:00');
-INSERT INTO Medicinas VALUES (154,'Renacort','COM',21.40,175,'2028-03-06 00:00:00');
-INSERT INTO Medicinas VALUES (155,'Ostevin','GEN',28.70,190,'2029-05-30 00:00:00');
-INSERT INTO Medicinas VALUES (156,'Immunova','COM',40.50,145,'2027-08-19 00:00:00');
-INSERT INTO Medicinas VALUES (157,'Glucorinex','GEN',34.10,260,'2028-11-24 00:00:00');
-INSERT INTO Medicinas VALUES (158,'Presocor','COM',16.80,320,'2029-02-08 00:00:00');
-INSERT INTO Medicinas VALUES (159,'Lipoclean','GEN',38.40,170,'2030-03-19 00:00:00');
-INSERT INTO Medicinas VALUES (160,'Broncosal','COM',13.20,290,'2028-07-07 00:00:00');
-INSERT INTO Medicinas VALUES (161,'Dolgen','GEN',8.60,510,'2027-09-25 00:00:00');
-
 select id, nombre from Medicinas where nombre like 'f%';
 select cedula, nombre from Clientes where nombre like 'Juan%';
-
-INSERT INTO clasificacion_medicinas VALUES (38,100);
-INSERT INTO clasificacion_medicinas VALUES (39,101);
-INSERT INTO clasificacion_medicinas VALUES (40,102);
-INSERT INTO clasificacion_medicinas VALUES (41,103);
-INSERT INTO clasificacion_medicinas VALUES (42,104);
-INSERT INTO clasificacion_medicinas VALUES (43,105);
-INSERT INTO clasificacion_medicinas VALUES (44,106);
-INSERT INTO clasificacion_medicinas VALUES (45,107);
-INSERT INTO clasificacion_medicinas VALUES (46,108);
-INSERT INTO clasificacion_medicinas VALUES (47,109);
-INSERT INTO clasificacion_medicinas VALUES (48,110);
-INSERT INTO clasificacion_medicinas VALUES (49,111);
-INSERT INTO clasificacion_medicinas VALUES (50,112);
-INSERT INTO clasificacion_medicinas VALUES (51,113);
-INSERT INTO clasificacion_medicinas VALUES (52,114);
-INSERT INTO clasificacion_medicinas VALUES (53,115);
-INSERT INTO clasificacion_medicinas VALUES (54,116);
-INSERT INTO clasificacion_medicinas VALUES (55,117);
-INSERT INTO clasificacion_medicinas VALUES (56,118);
-INSERT INTO clasificacion_medicinas VALUES (57,119);
-INSERT INTO clasificacion_medicinas VALUES (58,120);
-INSERT INTO clasificacion_medicinas VALUES (59,121);
-INSERT INTO clasificacion_medicinas VALUES (60,122);
-INSERT INTO clasificacion_medicinas VALUES (61,123);
-INSERT INTO clasificacion_medicinas VALUES (62,124);
-INSERT INTO clasificacion_medicinas VALUES (63,125);
-INSERT INTO clasificacion_medicinas VALUES (64,126);
-INSERT INTO clasificacion_medicinas VALUES (65,127);
-INSERT INTO clasificacion_medicinas VALUES (66,128);
-INSERT INTO clasificacion_medicinas VALUES (67,129);
-INSERT INTO clasificacion_medicinas VALUES (68,130);
-INSERT INTO clasificacion_medicinas VALUES (69,131);
-INSERT INTO clasificacion_medicinas VALUES (70,132);
-INSERT INTO clasificacion_medicinas VALUES (71,133);
-INSERT INTO clasificacion_medicinas VALUES (72,134);
-INSERT INTO clasificacion_medicinas VALUES (73,135);
-INSERT INTO clasificacion_medicinas VALUES (74,136);
-INSERT INTO clasificacion_medicinas VALUES (75,137);
-INSERT INTO clasificacion_medicinas VALUES (76,138);
-INSERT INTO clasificacion_medicinas VALUES (77,139);
-INSERT INTO clasificacion_medicinas VALUES (78,140);
-INSERT INTO clasificacion_medicinas VALUES (79,141);
-INSERT INTO clasificacion_medicinas VALUES (80,142);
-INSERT INTO clasificacion_medicinas VALUES (81,143);
-INSERT INTO clasificacion_medicinas VALUES (82,144);
-INSERT INTO clasificacion_medicinas VALUES (83,145);
-INSERT INTO clasificacion_medicinas VALUES (84,146);
-INSERT INTO clasificacion_medicinas VALUES (85,147);
-INSERT INTO clasificacion_medicinas VALUES (86,148);
-INSERT INTO clasificacion_medicinas VALUES (87,149);
-INSERT INTO clasificacion_medicinas VALUES (88,150);
-INSERT INTO clasificacion_medicinas VALUES (89,151);
-INSERT INTO clasificacion_medicinas VALUES (90,152);
-INSERT INTO clasificacion_medicinas VALUES (91,153);
-INSERT INTO clasificacion_medicinas VALUES (92,154);
-INSERT INTO clasificacion_medicinas VALUES (93,155);
-INSERT INTO clasificacion_medicinas VALUES (94,156);
-INSERT INTO clasificacion_medicinas VALUES (95,157);
-INSERT INTO clasificacion_medicinas VALUES (96,158);
-INSERT INTO clasificacion_medicinas VALUES (97,159);
-INSERT INTO clasificacion_medicinas VALUES (98,160);
-INSERT INTO clasificacion_medicinas VALUES (99,161);
-
-select * from clasificacion_medicinas;
-select cedula, nombre from Clientes where tipo like 'JUR';
-select * from clientes;
-select cedula, nombre from clientes where tipo like 'JUR' AND correo like '%mail%';
-select id, nombre from medicinas where precio like '%5%';
-select id, stock from medicinas where nombre like '%A%' AND tipo like 'GEN';
-

@@ -56,23 +56,24 @@ select * from pacientes_permanentes;
 select * from medicinas;
 select * from clasificacion_medicinas;
 SELECT
-    clasificacion_medicinas.id_medicina AS id_comercial,
+    clasificacion_medicinas.Medicina_COM AS id_comercial,
 
     (SELECT nombre
      FROM medicinas
-     WHERE id = clasificacion_medicinas.id_medicina) AS medicina_comercial,
+     WHERE id = clasificacion_medicinas.Medicina_COM) AS medicina_comercial,
 
     (SELECT precio
      FROM medicinas
-     WHERE id = clasificacion_medicinas.id_medicina) AS precio_comercial,
+     WHERE id = clasificacion_medicinas.Medicina_COM) AS precio_comercial,
 
-    clasificacion_medicinas.alternativa AS id_generica,
+    clasificacion_medicinas.Medicina_GEN AS id_generica,
 
     (SELECT nombre
      FROM medicinas
-     WHERE id = clasificacion_medicinas.alternativa) AS medicina_generica,
+     WHERE id = clasificacion_medicinas.Medicina_GEN) AS medicina_generica,
 
     (SELECT precio
      FROM medicinas
-     WHERE id = clasificacion_medicinas.alternativa) AS precio_generico
+     WHERE id = clasificacion_medicinas.Medicina_GEN) AS precio_generico
 FROM clasificacion_medicinas;
+
