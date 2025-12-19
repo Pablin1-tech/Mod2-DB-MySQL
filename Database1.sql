@@ -641,26 +641,67 @@ create table facturas (
 alter table facturas
 add constraint facturascedula_fk
 Foreign Key (Cedula) REFERENCES Clientes(Cedula);
+ALTER TABLE facturas
+ADD Forma_Pago CHAR(5);
+alter table facturas
+add constraint forma_pago_val
+check (
+    Forma_Pago in ('CHEQ/', 'EFEC/', 'TRFB/')
+);
 insert into facturas
 values (
     '0000000001',
     '2025-12-12',
     '1711932798',
-    5.25
+    24.62,
+    'EFEC/'
 );
 insert into facturas
 values (
     '0000000002',
     '2025-12-01',
     '1710544337',
-    11.20
+    8.70,
+    'TRFB/'
 );
+insert into facturas
+values (
+    '0000000003',
+    '2025-10-17',
+    '0100000091',
+    12.65,
+    'EFEC/'
+);
+insert into facturas
+values (
+    '0000000004',
+    '2025-11-01',
+    '0100000084',
+    11.04,
+    'EFEC/'
+);
+insert into facturas
+values (
+    '0000000005',
+    '2025-05-30',
+    '0100000041',
+    12.08,
+    'TRFB/'
+);
+
+select * from facturas;
+
 create table facturadetalle(
     facturaNumero char(10),
     medicamento_id int,
     cantidad int,
     precio decimal(15,2)
 );
+ALTER TABLE facturadetalle
+ADD IVA DECIMAL(15,2);
+alter table facturadetalle
+MODIFY COLUMN IVA DECIMAL(15,2) default 0.15;
+
 alter table facturadetalle
 add primary key (facturaNumero, medicamento_id);
 alter table facturadetalle
@@ -673,46 +714,84 @@ Alter table facturadetalle
 add Constraint factura_numero_fk
 Foreign Key (facturaNumero) REFERENCES facturas(FacturaNumero);
 
+select * from medicinas;
 select * from facturadetalle;
 insert into facturadetalle
+(facturaNumero, medicamento_id, cantidad, precio)
 values (
     '0000000001',
     2,
     6,
-    0.56
+    0.65
 );
 insert into facturadetalle
+(facturaNumero, medicamento_id, cantidad, precio)
 values (
     '0000000001',
     8,
     10,
-    22.31
+    1.75
 );
 
 insert into facturadetalle
+(facturaNumero, medicamento_id, cantidad, precio)
 values (
     '0000000002',
     1,
     3,
-    1.50
+    0.50
 );
 insert into facturadetalle
+(facturaNumero, medicamento_id, cantidad, precio)
 values (
     '0000000002',
     30,
     1,
-    9.50
+    0.78
 );
 insert into facturadetalle
+(facturaNumero, medicamento_id, cantidad, precio)
 values (
     '0000000002',
     15,
     6,
-    12.70
+    0.88
+);
+insert into facturadetalle
+(facturaNumero, medicamento_id, cantidad, precio)
+values (
+    '0000000003',
+    74,
+    5,
+    2.20
+);
+insert into facturadetalle
+(facturaNumero, medicamento_id, cantidad, precio)
+values (
+    '0000000004',
+    47,
+    4,
+    1.10
+);
+insert into facturadetalle
+(facturaNumero, medicamento_id, cantidad, precio)
+values (
+    '0000000004',
+    48,
+    2,
+    2.60
+);
+insert into facturadetalle
+(facturaNumero, medicamento_id, cantidad, precio)
+values (
+    '0000000005',
+    58,
+    3,
+    3.50
 );
 select * from facturadetalle;
 show tables;
-select * from medicinas;
+select * from pacientes_permanentes;
 
 create table Proveedor
 (

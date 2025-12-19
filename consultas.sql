@@ -108,3 +108,135 @@ JOIN medicinas mc
     ON mc.id = cm.medicina_COM
 JOIN medicinas mg
     ON mg.id = cm.medicina_GEN;
+
+-- Caso: Crear todas las combinaciones posibles entre la tabla 
+--       de clientes y pacientes permanentes
+--       Producto Carteciano
+
+SELECT * FROM
+    clientes,
+    pacientes_permanentes
+WHERE
+    clientes.Cedula = pacientes_permanentes.Cedula_cliente;
+
+SELECT * FROM
+    Medicinas,
+    Pacientes_permanentes
+WHERE
+    Medicinas.Id = pacientes_permanentes.Id_Medicamento;
+SELECT 
+    c.Cedula,
+    c.Nombre,
+    m.Nombre,
+    pp.descuento,
+    m.Tipo  
+from
+    clientes c,
+    Medicinas m,  
+    pacientes_permanentes pp
+WHERE
+    m.id = pp.Id_medicamento
+and c.cedula = pp.Cedula_cliente;
+
+-- JOIN
+SELECT 
+    c.Cedula,
+    c.Nombre,
+    m.Nombre,
+    pp.descuento,
+    m.Tipo  
+from 
+    pacientes_permanentes pp
+JOIN clientes c on c.cedula = pp.Cedula_cliente
+JOIN medicinas m ON m.id = pp.Id_medicamento;
+
+SELECT
+    mgen.id     AS id_generica,
+    mgen.nombre AS medicina_generica,
+    mgen.precio AS precio_generico,
+
+    mcom.id     AS id_comercial,
+    mcom.nombre AS medicina_comercial,
+    mcom.precio AS precio_comercial,
+
+    mcom.precio - mgen.precio as Diferencia
+
+FROM clasificacion_medicinas cm
+JOIN medicinas mgen ON mgen.id = cm.medicina_gen
+JOIN medicinas mcom ON mcom.id = cm.medicina_com;
+
+-- Caso: Presentar una factura y sus detalles, que incluya:
+--       datos de la farmacia, datos del cliente
+--       datos de cabecera, medicinas vendidas
+--       datos al pie de la factura y forma de pago
+
+-- 1. Carga de datos en factura y detalles usando datos existentes
+-- 2. select para cabecera de factura
+-- 3. select para detalles de factura
+-- 4. select para el pie de factura
+
+SELECT
+    de.razonsocial      AS farmacia,
+    de.ruc              AS ruc_farmacia,
+    de.direccion,
+    de.telefono,
+    de.email            AS email_farmacia,
+
+    f.FacturaNumero    AS numero_factura,
+    f.Fecha,
+
+    c.cedula           AS cedula_cliente,
+    c.nombre           AS nombre_cliente,
+    c.apellido         AS apellido_cliente,
+    c.correo            AS email_cliente
+FROM facturas f
+JOIN clientes c ON c.cedula = f.cedula
+JOIN datos_empresa de
+WHERE f.facturanumero = '0000000001';
+
+--- FACTURA
+---- CABECERA DE LA FACTURA
+SELECT
+    de.razonsocial AS farmacia,
+    de.ruc         AS ruc_farmacia,
+    de.direccion,
+    de.telefono,
+    de.email       AS email_farmacia,
+
+    f.facturanumero,
+    f.fecha,
+
+    c.cedula      AS cedula_cliente,
+    c.nombre,
+    c.apellido,
+    c.correo       AS email_cliente,
+
+    f.total
+FROM facturas f
+JOIN clientes c 
+    ON c.cedula = f.cedula
+JOIN datos_empresa de 
+    ON de.ruc = '1712312345001'
+WHERE f.facturanumero = '0000000001';
+
+-- DETALLLE
+
+SELECT
+    fd.facturanumero,
+    m.id AS id_medicamento,
+    m.nombre AS medicamento,
+    fd.cantidad,
+    m.precio,
+    (fd.cantidad * m.precio) AS subtotal
+FROM facturadetalle fd
+JOIN medicinas m
+    ON m.id = fd.medicamento_id
+WHERE fd.facturanumero = '0000000001';
+
+--- PIE DE FACTURA
+SELECT
+    f.facturanumero,
+    f.total,
+    f.forma_pago AS metodo_pago
+FROM facturas f
+WHERE f.facturanumero = '0000000001';
