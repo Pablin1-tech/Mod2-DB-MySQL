@@ -77,3 +77,34 @@ SELECT
      WHERE id = clasificacion_medicinas.Medicina_GEN) AS precio_generico
 FROM clasificacion_medicinas;
 
+-- Caso JOIN
+SELECT
+    pp.cedula_cliente AS cedula,
+    c.nombre AS cliente,
+    m.nombre AS medicamento,
+    m.precio AS precio_original,
+    pp.descuento,
+
+    (m.precio * pp.descuento / 100) AS valor_descuento,
+
+    (m.precio - (m.precio * pp.descuento / 100)) AS precio_final
+
+FROM pacientes_permanentes pp
+JOIN clientes c
+    ON pp.cedula_cliente = c.cedula
+JOIN medicinas m
+    ON pp.id_medicamento = m.id;
+
+SELECT
+    cm.medicina_COM AS id_comercial,
+    mc.nombre       AS medicina_comercial,
+    mc.precio       AS precio_comercial,
+
+    cm.medicina_GEN AS id_generica,
+    mg.nombre       AS medicina_generica,
+    mg.precio       AS precio_generico
+FROM clasificacion_medicinas cm
+JOIN medicinas mc
+    ON mc.id = cm.medicina_COM
+JOIN medicinas mg
+    ON mg.id = cm.medicina_GEN;
