@@ -111,7 +111,7 @@ JOIN medicinas mg
 
 -- Caso: Crear todas las combinaciones posibles entre la tabla 
 --       de clientes y pacientes permanentes
---       Producto Carteciano
+--       Producto Cartesiano
 
 SELECT * FROM
     clientes,
@@ -238,3 +238,73 @@ FROM facturadetalle fd
 JOIN medicinas m
     ON m.id = fd.medicamento_id
 WHERE fd.facturaNumero = '0000000001';
+
+CREATE VIEW v_1
+AS
+SELECT
+    mgen.id     AS id_generica,
+    mgen.nombre AS medicina_generica,
+    mgen.precio AS precio_generico,
+
+    mcom.id     AS id_comercial,
+    mcom.nombre AS medicina_comercial,
+    mcom.precio AS precio_comercial,
+
+    mcom.precio - mgen.precio as Diferencia
+
+FROM clasificacion_medicinas cm
+JOIN medicinas mgen ON mgen.id = cm.medicina_gen
+JOIN medicinas mcom ON mcom.id = cm.medicina_com;
+
+select * from v_1;
+
+-- where con 2 ANDs
+SELECT
+    pp.cedula_cliente AS cedula,
+    c.nombre AS cliente,
+    m.nombre AS medicamento,
+    m.precio AS precio_original,
+    pp.descuento,
+
+    (m.precio * pp.descuento / 100) AS valor_descuento,
+
+    (m.precio - (m.precio * pp.descuento / 100)) AS precio_final
+
+FROM pacientes_permanentes pp
+JOIN clientes c
+    ON pp.cedula_cliente = c.cedula
+JOIN medicinas m
+    ON pp.id_medicamento = m.id
+where precio > 0.50 and precio < 1.20;
+
+-- not
+select
+  id,
+  nombre,
+  precio
+from medicinas
+where not precio > 2;
+
+select count(*) from pacientes_permanentes;
+
+select 
+  *
+from medicinas
+where id not In
+(
+    select id_medicamento from pacientes_permanentes
+);
+select * from medicinas;
+
+select 
+  *
+from medicinas m
+join pacientes_permanentes pp on m.id = pp.id_medicamento;
+
+-- left join
+select 
+  *
+from medicinas m
+left join pacientes_permanentes pp on m.id = pp.id_medicamento
+where pp.id_medicamento is null;
+

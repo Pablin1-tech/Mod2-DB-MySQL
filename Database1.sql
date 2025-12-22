@@ -836,3 +836,6 @@ UNIQUE(Correo);
 select correo, nombre from Clientes where cedula='0100000021';
 select id, nombre from Medicinas where nombre like 'f%';
 select cedula, nombre from Clientes where nombre like 'Juan%';
+
+select * from clasificacion_medicinas;
+select * from medicinas;
