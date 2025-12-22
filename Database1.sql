@@ -630,12 +630,12 @@ values (
 select * from clientes;
 
 select * from datos_empresa;
-
+drop table facturas;
+drop table facturadetalle;
 create table facturas (
   FacturaNumero char(10) primary key,
   Fecha date,
-  Cedula char(10),
-  Total decimal(15,2)
+  Cedula char(10)
 );
 
 alter table facturas
@@ -653,7 +653,6 @@ values (
     '0000000001',
     '2025-12-12',
     '1711932798',
-    24.62,
     'EFEC/'
 );
 insert into facturas
@@ -661,7 +660,6 @@ values (
     '0000000002',
     '2025-12-01',
     '1710544337',
-    8.70,
     'TRFB/'
 );
 insert into facturas
@@ -669,7 +667,6 @@ values (
     '0000000003',
     '2025-10-17',
     '0100000091',
-    12.65,
     'EFEC/'
 );
 insert into facturas
@@ -677,7 +674,6 @@ values (
     '0000000004',
     '2025-11-01',
     '0100000084',
-    11.04,
     'EFEC/'
 );
 insert into facturas
@@ -685,7 +681,6 @@ values (
     '0000000005',
     '2025-05-30',
     '0100000041',
-    12.08,
     'TRFB/'
 );
 

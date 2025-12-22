@@ -176,67 +176,65 @@ JOIN medicinas mcom ON mcom.id = cm.medicina_com;
 -- 4. select para el pie de factura
 
 SELECT
-    de.razonsocial      AS farmacia,
-    de.ruc              AS ruc_farmacia,
-    de.direccion,
-    de.telefono,
-    de.email            AS email_farmacia,
-
-    f.FacturaNumero    AS numero_factura,
-    f.Fecha,
-
-    c.cedula           AS cedula_cliente,
-    c.nombre           AS nombre_cliente,
-    c.apellido         AS apellido_cliente,
-    c.correo            AS email_cliente
-FROM facturas f
-JOIN clientes c ON c.cedula = f.cedula
-JOIN datos_empresa de
-WHERE f.facturanumero = '0000000001';
-
---- FACTURA
----- CABECERA DE LA FACTURA
-SELECT
-    de.razonsocial AS farmacia,
-    de.ruc         AS ruc_farmacia,
-    de.direccion,
-    de.telefono,
-    de.email       AS email_farmacia,
+    /* DATOS DE LA EMPRESA (FARMACIA) */
+    de.razonsocial        AS farmacia,
+    de.ruc                AS ruc_farmacia,
+    de.direccion          AS direccion_farmacia,
+    de.telefono           AS telefono_farmacia,
+    de.email              AS email_farmacia,
 
     f.facturanumero,
     f.fecha,
 
-    c.cedula      AS cedula_cliente,
+    c.cedula              AS cedula_cliente,
+    c.nombre              AS nombre_cliente,
+    c.apellido            AS apellido_cliente,
+    c.correo               AS email_cliente,
+
+    SUM(fd.cantidad * m.precio)           AS subtotal,
+    SUM(fd.cantidad * m.precio) * 0.15    AS IVA,
+    SUM(fd.cantidad * m.precio) * 1.15    AS total,
+
+    f.forma_pago         AS metodo_pago
+
+FROM facturas f
+
+JOIN clientes c
+    ON c.cedula = f.cedula
+
+JOIN datos_empresa de
+    ON de.ruc = '1712312345001'
+
+JOIN facturadetalle fd
+    ON fd.facturanumero = f.facturanumero
+
+JOIN medicinas m
+    ON m.id = fd.medicamento_id
+
+WHERE f.facturanumero = '0000000001'
+
+GROUP BY
+    de.razonsocial,
+    de.ruc,
+    de.direccion,
+    de.telefono,
+    de.email,
+    f.facturanumero,
+    f.fecha,
+    c.cedula,
     c.nombre,
     c.apellido,
-    c.correo       AS email_cliente,
-
-    f.total
-FROM facturas f
-JOIN clientes c 
-    ON c.cedula = f.cedula
-JOIN datos_empresa de 
-    ON de.ruc = '1712312345001'
-WHERE f.facturanumero = '0000000001';
-
--- DETALLLE
+    c.correo,
+    f.forma_pago;
 
 SELECT
-    fd.facturanumero,
-    m.id AS id_medicamento,
-    m.nombre AS medicamento,
-    fd.cantidad,
-    m.precio,
-    (fd.cantidad * m.precio) AS subtotal
+fd.facturaNumero        AS numero_factura, 
+fd.medicamento_id,
+m.nombre                AS medicamento,
+fd.cantidad,
+fd.precio,
+(fd.cantidad * fd.precio) AS subtotal_detalle
 FROM facturadetalle fd
 JOIN medicinas m
     ON m.id = fd.medicamento_id
-WHERE fd.facturanumero = '0000000001';
-
---- PIE DE FACTURA
-SELECT
-    f.facturanumero,
-    f.total,
-    f.forma_pago AS metodo_pago
-FROM facturas f
-WHERE f.facturanumero = '0000000001';
+WHERE fd.facturaNumero = '0000000001';
