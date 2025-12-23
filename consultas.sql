@@ -308,3 +308,146 @@ from medicinas m
 left join pacientes_permanentes pp on m.id = pp.id_medicamento
 where pp.id_medicamento is null;
 
+-- BY
+select * from clientes order BY edad;
+select * from clientes order BY edad desc;
+select nombre, edad from clientes order BY edad limit 1;
+
+-- caso 1: conocer las 5 medicinas mas caras
+select id, nombre, precio from medicinas order BY precio desc limit 5;
+
+-- caso 2: conocer las 5 medicinas mas baratas
+select id, nombre, precio from medicinas order BY precio limit 5;
+
+-- caso 3: la medicina comercial mas barata
+select 
+  id, 
+  nombre, 
+  precio,
+  tipo
+from 
+  medicinas 
+where tipo = 'COM'
+order by 
+  precio
+limit 1;
+
+-- caso 4: la medicina generica mas barata
+select 
+  id, 
+  nombre, 
+  precio,
+  tipo
+from 
+  medicinas 
+where tipo = 'GEN'
+order by 
+  precio
+limit 1;
+
+select * from medicinas;
+
+-- caso 5: 5 medicinas genericas con el menor descuento
+select 
+  pp.cedula_cliente,
+  pp.id_medicamento, 
+  m.nombre , 
+  m.tipo,
+  m.precio,
+  pp.descuento
+from 
+  medicinas m
+join pacientes_permanentes pp
+  on pp.id_medicamento = m.id
+where tipo = 'GEN'
+order by 
+  descuento
+limit 5;
+
+select 
+  id,
+  nombre
+from medicinas
+WHERE
+  id in (
+    select
+      ID_medicamento
+    from pacientes_permanentes
+    join medicinas on id = id_medicamento
+    where
+      tipo = 'GEN'
+    order BY
+      descuento
+  );
+
+-- Caso Agrupamientos
+select 
+  tipo,
+  count(*) as Numero
+from clientes
+GROUP BY
+  tipo;
+
+-- Caso Operadores Matematicos
+select
+  id,
+  nombre,
+  precio,
+  stock,
+  precio * stock
+from medicinas;
+
+select
+  tipo,
+  sum(precio * stock)
+from medicinas
+GROUP BY
+  tipo;
+
+-- Caso Faacturas detalles. Valor monetario por medicina vendida
+SELECT
+  medicamento_id,
+  cantidad,
+  precio,
+  cantidad * precio as subtotal
+from facturadetalle
+order by medicamento_id;
+
+SELECT
+  medicamento_id,
+  nombre,
+  sum(cantidad * fd.precio)
+from facturadetalle fd
+join medicinas m on m.id = fd.medicamento_id
+group by
+  medicamento_id
+order by
+  medicamento_id;
+
+-- Caso: Mejor cliente (el que mas compra)
+SELECT
+    c.cedula,
+    c.nombre,
+    SUM(fd.cantidad * fd.precio) AS total_comprado
+FROM clientes c
+JOIN facturas f
+    ON c.cedula = f.cedula
+JOIN facturadetalle fd
+    ON f.facturanumero = fd.facturanumero
+GROUP BY c.cedula, c.nombre
+ORDER BY total_comprado DESC
+LIMIT 1;
+
+select
+  fd.facturanumero,
+  f.cedula,
+  c.nombre,
+  sum(fd.cantidad * fd.precio)
+from facturadetalle fd
+join facturas f on f.facturanumero = fd.facturanumero
+join clientes c on c.cedula = f.cedula
+group by
+  fd.facturanumero
+order by
+  sum(fd.cantidad * fd.precio) desc
+limit 1;
