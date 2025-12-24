@@ -404,7 +404,7 @@ from medicinas
 GROUP BY
   tipo;
 
--- Caso Faacturas detalles. Valor monetario por medicina vendida
+-- Caso Facturas detalles. Valor monetario por medicina vendida
 SELECT
   medicamento_id,
   cantidad,
@@ -451,3 +451,149 @@ group by
 order by
   sum(fd.cantidad * fd.precio) desc
 limit 1;
+
+select count(*) from facturas;
+select count(*) from facturadetalle;
+
+SELECT
+  id,
+  nombre,
+  precio,
+  stock,
+  precio * stock
+from medicinas;
+
+SELECT
+    m.id,
+    m.nombre,
+    m.stock,
+    m.precio,
+    MIN(pp.descuento) AS descuento,
+    (m.stock * m.precio) 
+      - (m.stock * 
+         CASE 
+            WHEN MIN(pp.descuento) IS NULL THEN 0
+            ELSE MIN(pp.descuento)
+         END
+        ) AS venta_proyectada
+FROM medicinas m
+LEFT JOIN pacientes_permanentes pp
+    ON pp.id_medicamento = m.id
+GROUP BY
+    m.id,
+    m.nombre,
+    m.stock,
+    m.precio
+ORDER BY
+    venta_proyectada DESC;
+
+-- UNION DE CONSULTAS (UNION)
+create view v_union as
+SELECT    -- medicinas con descuento
+  pp.id_medicamento,
+  m.nombre,
+  m.precio,
+  m.stock,
+  pp.descuento,   -- descuento del plan
+  (m.precio - (m.precio* pp.descuento)) as precio_final
+from pacientes_permanentes pp
+join medicinas m on m.id = pp.id_medicamento
+UNION
+SELECT      -- medicinas sin descuento
+  pp.id_medicamento,
+  m.nombre,
+  m.precio,
+  m.stock,
+  0.0 as descuento,   -- sin descuento
+  (m.precio + 0.0) as precio_final
+from pacientes_permanentes pp
+right join medicinas m on m.id = pp.id_medicamento
+where pp.descuento is null;
+
+select * from v_union;
+
+select 
+  sum(precio_final * stock)
+from v_union;
+select 
+  sum(precio*stock)
+from v_union;
+
+-- Consultar por fechas de caducidad
+SELECT
+    id,
+    nombre,
+    fechaCaducidad
+FROM medicinas
+WHERE fechaCaducidad >= DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
+  AND fechaCaducidad <= LAST_DAY(DATE_ADD(CURDATE(), INTERVAL 3 MONTH))
+
+ORDER BY fechaCaducidad;
+
+select * from medicinas;
+
+-- Que salga mensaje indicando mes de vencimiento
+--SELECT
+    --id,
+    --nombre,
+    --fechaCaducidad,
+    --CONCAT(
+        --'Vence ',
+        --CASE MONTH(fechaCaducidad)
+            --WHEN 1  THEN 'ENERO'
+            --WHEN 2  THEN 'FEBRERO'
+            --WHEN 3  THEN 'MARZO'
+            --WHEN 4  THEN 'ABRIL'
+            --WHEN 5  THEN 'MAYO'
+            --WHEN 6  THEN 'JUNIO'
+            --WHEN 7  THEN 'JULIO'
+            --WHEN 8  THEN 'AGOSTO'
+            --WHEN 9  THEN 'SEPTIEMBRE'
+            --WHEN 10 THEN 'OCTUBRE'
+            --WHEN 11 THEN 'NOVIEMBRE'
+            --WHEN 12 THEN 'DICIEMBRE'
+        --END
+    --) AS estado_caducidad
+--FROM medicinas
+
+--UNION
+
+--SELECT
+    --id,
+    --nombre,
+    --fechaCaducidad,
+    --NULL AS estado_caducidad
+--FROM medicinas
+--WHERE fechaCaducidad >= DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
+  --AND fechaCaducidad <= LAST_DAY(DATE_ADD(CURDATE(), INTERVAL 3 MONTH))
+
+--ORDER BY fechaCaducidad;
+
+create view V_Fecha_Caducidad as
+SELECT
+    id,
+    nombre,
+    fechaCaducidad,
+    CONCAT(
+        'Vence ',
+        CASE MONTH(fechaCaducidad)
+            WHEN 1  THEN 'ENERO'
+            WHEN 2  THEN 'FEBRERO'
+            WHEN 3  THEN 'MARZO'
+            WHEN 4  THEN 'ABRIL'
+            WHEN 5  THEN 'MAYO'
+            WHEN 6  THEN 'JUNIO'
+            WHEN 7  THEN 'JULIO'
+            WHEN 8  THEN 'AGOSTO'
+            WHEN 9  THEN 'SEPTIEMBRE'
+            WHEN 10 THEN 'OCTUBRE'
+            WHEN 11 THEN 'NOVIEMBRE'
+            WHEN 12 THEN 'DICIEMBRE'
+        END
+    ) AS estado_caducidad
+FROM medicinas
+WHERE fechaCaducidad >= DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
+  AND fechaCaducidad <= LAST_DAY(DATE_ADD(CURDATE(), INTERVAL 6 MONTH))
+ORDER BY fechaCaducidad;
+
+select * from V_Fecha_Caducidad;
