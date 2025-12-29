@@ -597,3 +597,164 @@ WHERE fechaCaducidad >= DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%
 ORDER BY fechaCaducidad;
 
 select * from V_Fecha_Caducidad;
+
+-- Caso STOCK MIN
+SELECT
+    m.id,
+    m.nombre,
+    m.tipo,
+    m.stock,
+    'STOCK CRÍTICO' AS alerta
+FROM medicinas m
+WHERE m.stock <= 120
+ORDER BY m.stock;
+
+SELECT * from medicinas;
+---=========================================
+
+-- V_MOV_VENTAS --
+CREATE OR REPLACE VIEW v_mov_ventas AS
+SELECT
+    f.fecha,
+    fd.medicamento_id,
+    m.nombre AS medicina,
+    f.facturanumero AS documento,
+    'VENTA' AS tipo_mov,
+    m.stock AS stock_actual,
+    fd.cantidad AS salida
+FROM facturadetalle fd
+JOIN facturas f
+    ON f.facturanumero = fd.facturanumero
+JOIN medicinas m
+    ON m.id = fd.medicamento_id;
+
+SELECT * FROM v_mov_ventas;
+CREATE OR REPLACE VIEW v_mov_compras AS
+SELECT
+    c.fecha,
+    cd.medicamento_id,
+    m.nombre AS medicina,
+    c.compranumero AS documento,
+    'COMPRA' AS tipo_mov,
+    m.stock AS stock_actual,
+    cd.cantidad AS entrada
+FROM compradetalle cd
+JOIN compras c
+    ON c.compranumero = cd.compranumero
+JOIN medicinas m
+    ON m.id = cd.medicamento_id;
+
+SELECT
+    fecha,
+    medicamento_id,
+    medicina,
+    documento,
+    tipo_mov,
+    stock_actual,
+    entrada,
+    0 AS salida
+FROM v_mov_compras
+
+UNION ALL
+
+SELECT
+    fecha,
+    medicamento_id,
+    medicina,
+    documento,
+    tipo_mov,
+    stock_actual,
+    0 AS entrada,
+    salida
+FROM v_mov_ventas;
+
+SELECT
+    fecha,
+    medicamento_id,
+    tipo_mov,
+    stock_actual,
+    entrada,
+    salida,
+
+    stock_actual
+    + SUM(
+        CASE tipo_mov
+            WHEN 'COMPRA' THEN entrada
+            WHEN 'VENTA'  THEN -salida
+        END
+      ) OVER (
+        PARTITION BY medicamento_id
+        ORDER BY fecha
+        ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+      ) AS saldo
+
+FROM (
+    SELECT
+        fecha,
+        medicamento_id,
+        tipo_mov,
+        stock_actual,
+        entrada,
+        0 AS salida
+    FROM v_mov_compras
+
+    UNION ALL
+
+    SELECT
+        fecha,
+        medicamento_id,
+        tipo_mov,
+        stock_actual,
+        0 AS entrada,
+        salida
+    FROM v_mov_ventas
+) 
+v_movimientos
+WHERE medicamento_id = 47
+ORDER BY fecha;
+
+---======================================================================
+
+create view v_kardex AS
+SELECT
+  fecha,
+  medicamento_id,
+  tipo_mov,
+  stock_actual,
+  0 AS entrada,
+  salida
+FROM v_mov_ventas
+  v_movimientos
+WHERE medicamento_id = 47
+ORDER BY fecha;
+
+select * from v_kardex;
+
+-- Continuo con CASO STOCK MIN
+create table control_stock(
+  medicina_id int,
+  stock_minimo int
+);
+alter table control_stock
+add PRIMARY KEY (medicina_id);
+alter table control_stock
+add constraint control_stock_medicina_id_fk
+Foreign Key (medicina_id) REFERENCES medicinas(Id);
+
+insert into control_stock
+values(47,10);
+
+select
+  fecha,
+  medicamento_id,
+  medicina,
+  tipo_mov,
+  cantidad,
+  saldo,
+  stock_minimo
+from
+  v_kardex K
+join control_stock cs on cs.medicina_id = k.medicamento_id
+where
+  medicamento_id = 47
+  and saldo <= stock_minimo;

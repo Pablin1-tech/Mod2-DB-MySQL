@@ -839,3 +839,27 @@ select cedula, nombre from Clientes where nombre like 'Juan%';
 
 select * from clasificacion_medicinas;
 select * from medicinas;
+
+-- ======================
+-- TABLA PROVEDORES
+-- ======================
+INSERT INTO proveedor VALUES
+('1700000000002','Distribuidora FarmaPlus','0991111111','ventas@farmaplus.com'),
+('1700000000003','Laboratorios Andinos','0992222222','contacto@andinos.com');
+
+CREATE TABLE compras (
+    compranumero CHAR(10) PRIMARY KEY,
+    fecha DATE,
+    proveedor_id CHAR(13),
+    FOREIGN KEY (proveedor_id) REFERENCES proveedor(RUC)
+);
+
+CREATE TABLE compradetalle (
+    compranumero CHAR(10),
+    medicamento_id INT,
+    cantidad INT,
+    costo_unitario DECIMAL(15,2),
+    PRIMARY KEY (compranumero, medicamento_id),
+    FOREIGN KEY (compranumero) REFERENCES compras(compranumero),
+    FOREIGN KEY (medicamento_id) REFERENCES medicinas(id)
+);
